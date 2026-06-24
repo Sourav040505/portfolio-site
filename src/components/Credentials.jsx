@@ -58,7 +58,7 @@ export default function Credentials() {
             <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight font-sans">
               Credentials
             </h2>
-            <p className="text-gray-400 text-xs leading-relaxed font-sans">
+            <p className="text-gray-200 text-xs leading-relaxed font-sans">
               Academic credentials and professional industry certifications verified on-chain.
             </p>
           </div>
@@ -69,7 +69,7 @@ export default function Credentials() {
           
           {/* Education list Column */}
           <div className="md:col-span-7 p-8 sm:p-12 space-y-8">
-            <div className="flex items-center gap-2.5 font-mono text-[10px] tracking-wider text-gray-500 pb-4 border-b border-white/5">
+            <div className="flex items-center gap-2.5 font-mono text-[10px] tracking-wider text-gray-400 pb-4 border-b border-white/5">
               <GraduationCap size={14} className="text-indigo-400" />
               <span>ACADEMIC_RECORD // MODULE 01</span>
             </div>
@@ -81,14 +81,14 @@ export default function Credentials() {
                     <h4 className="text-sm font-bold text-white tracking-tight group-hover:text-indigo-400 transition-colors">
                       {edu.institution}
                     </h4>
-                    <span className="font-mono text-[9px] text-gray-600 bg-white/5 border border-white/5 px-2 py-0.5 self-start sm:self-auto">
+                    <span className="font-mono text-[9px] text-gray-400 bg-white/5 border border-white/10 px-2 py-0.5 self-start sm:self-auto">
                       {edu.timeline}
                     </span>
                   </div>
                   <p className="text-[11px] font-mono text-indigo-400 tracking-wider">
                     {edu.degree}
                   </p>
-                  <p className="text-gray-500 text-xs leading-relaxed group-hover:text-gray-400 transition-colors">
+                  <p className="text-gray-300 text-xs leading-relaxed group-hover:text-white transition-colors">
                     {edu.details}
                   </p>
                 </div>
@@ -98,7 +98,7 @@ export default function Credentials() {
 
           {/* Certifications list Column */}
           <div className="md:col-span-5 p-8 sm:p-12 space-y-8">
-            <div className="flex items-center gap-2.5 font-mono text-[10px] tracking-wider text-gray-500 pb-4 border-b border-white/5">
+            <div className="flex items-center gap-2.5 font-mono text-[10px] tracking-wider text-gray-400 pb-4 border-b border-white/5">
               <Award size={14} className="text-purple-400" />
               <span>VERIFIED_CREDENTIALS // MODULE 02</span>
             </div>
@@ -114,7 +114,7 @@ export default function Credentials() {
                   <div className={`p-1 mt-0.5 rounded-sm shrink-0 border ${
                     cert.highlight 
                       ? 'bg-indigo-500/10 border-indigo-500/20 text-indigo-400' 
-                      : 'bg-white/5 border-white/5 text-gray-600'
+                      : 'bg-white/5 border-white/10 text-gray-400'
                   }`}>
                     <CheckCircle2 size={12} />
                   </div>
@@ -124,7 +124,7 @@ export default function Credentials() {
                     }`}>
                       {cert.title}
                     </h4>
-                    <p className="text-[9px] text-gray-500 font-medium tracking-wider mt-0.5 uppercase">
+                    <p className="text-[9px] text-gray-400 font-medium tracking-wider mt-0.5 uppercase">
                       {cert.issuer}
                     </p>
                   </div>

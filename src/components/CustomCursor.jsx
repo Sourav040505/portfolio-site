@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
 export default function CustomCursor() {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [trail, setTrail] = useState({ x: 0, y: 0 });
+  const [position, setPosition] = useState({ x: -100, y: -100 });
   const [isHovered, setIsHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Disable custom cursor on mobile/touch screens
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     if (isTouchDevice) return;
 
@@ -18,7 +16,6 @@ export default function CustomCursor() {
     };
 
     const handleMouseOver = (e) => {
-      // Check if hovering over links, buttons, or interactive elements
       const target = e.target;
       if (
         target.tagName === 'A' || 
@@ -42,55 +39,36 @@ export default function CustomCursor() {
     };
   }, []);
 
-  useEffect(() => {
-    let animationFrameId;
-
-    const updateTrail = () => {
-      setTrail((prev) => {
-        // Linear interpolation for smooth trailing effect
-        const dx = position.x - prev.x;
-        const dy = position.y - prev.y;
-        return {
-          x: prev.x + dx * 0.15,
-          y: prev.y + dy * 0.15,
-        };
-      });
-      animationFrameId = requestAnimationFrame(updateTrail);
-    };
-
-    animationFrameId = requestAnimationFrame(updateTrail);
-    return () => cancelAnimationFrame(animationFrameId);
-  }, [position]);
-
   if (!isVisible) return null;
 
   return (
-    <>
-      {/* Outer Glow Ring */}
-      <div
-        className="fixed top-0 left-0 rounded-full border pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-all duration-100 ease-out"
+    <div
+      className="fixed top-0 left-0 pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 flex items-center justify-center"
+      style={{
+        left: `${position.x}px`,
+        top: `${position.y}px`,
+      }}
+    >
+      {/* Outer target ring (extremely responsive, zero interpolation lag) */}
+      <div 
+        className="rounded-full border transition-all duration-150 ease-out flex items-center justify-center"
         style={{
-          left: `${trail.x}px`,
-          top: `${trail.y}px`,
-          width: isHovered ? '48px' : '24px',
-          height: isHovered ? '48px' : '24px',
-          borderColor: isHovered ? 'rgba(99, 102, 241, 0.8)' : 'rgba(255, 255, 255, 0.2)',
-          backgroundColor: isHovered ? 'rgba(99, 102, 241, 0.05)' : 'transparent',
-          boxShadow: isHovered ? '0 0 15px rgba(99, 102, 241, 0.3)' : 'none',
+          width: isHovered ? '28px' : '16px',
+          height: isHovered ? '28px' : '16px',
+          borderColor: isHovered ? 'rgba(99, 102, 241, 1)' : 'rgba(255, 255, 255, 0.4)',
+          backgroundColor: isHovered ? 'rgba(99, 102, 241, 0.1)' : 'transparent',
+          boxShadow: isHovered ? '0 0 10px rgba(99, 102, 241, 0.4)' : 'none',
         }}
-      />
-      
-      {/* Inner Dot */}
-      <div
-        className="fixed top-0 left-0 rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 bg-indigo-500 transition-transform duration-200"
-        style={{
-          left: `${position.x}px`,
-          top: `${position.y}px`,
-          width: '6px',
-          height: '6px',
-          transform: `translate(-50%, -50%) scale(${isHovered ? 1.5 : 1})`,
-        }}
-      />
-    </>
+      >
+        {/* Center dot */}
+        <div 
+          className="w-1.5 h-1.5 rounded-full bg-white transition-transform"
+          style={{
+            transform: `scale(${isHovered ? 1.2 : 1})`,
+            backgroundColor: isHovered ? '#6366F1' : '#FFFFFF',
+          }}
+        />
+      </div>
+    </div>
   );
 }

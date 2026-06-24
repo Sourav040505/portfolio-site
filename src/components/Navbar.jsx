@@ -23,7 +23,7 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/5">
+    <header className="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between font-mono text-[11px] tracking-wider">
         {/* Brand */}
         <div className="flex items-center gap-4">
@@ -42,7 +42,7 @@ export default function Navbar() {
             <a 
               key={link.label}
               href={link.href} 
-              className="text-gray-400 hover:text-white hover:underline decoration-indigo-500 decoration-2 underline-offset-4 transition-all"
+              className="text-gray-300 hover:text-white hover:underline decoration-indigo-500 decoration-2 underline-offset-4 transition-all"
             >
               {link.label}
             </a>
@@ -51,12 +51,12 @@ export default function Navbar() {
 
         {/* Socials & Clock */}
         <div className="flex items-center gap-6">
-          <div className="flex items-center gap-4 border-r border-white/5 pr-6">
+          <div className="flex items-center gap-4 border-r border-white/10 pr-6">
             <a 
               href="https://github.com/Sourav040505" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition-colors"
+              className="text-gray-300 hover:text-white transition-colors"
               title="GitHub"
             >
               <Github size={14} />
@@ -65,16 +65,16 @@ export default function Navbar() {
               href="https://linkedin.com/in/souravgoswami2005" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition-colors"
+              className="text-gray-300 hover:text-white transition-colors"
               title="LinkedIn"
             >
               <Linkedin size={14} />
             </a>
           </div>
           
-          <div className="text-gray-400 flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-            <span>UTC {time}</span>
+          <div className="text-gray-300 flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span>{time}</span>
           </div>
         </div>
       </div>

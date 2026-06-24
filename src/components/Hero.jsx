@@ -58,7 +58,7 @@ export default function Hero() {
             </span>
           </h1>
 
-          <p className="text-gray-400 text-sm sm:text-base max-w-xl leading-relaxed mb-12 tracking-wide font-sans">
+          <p className="text-gray-200 text-sm sm:text-base max-w-xl leading-relaxed mb-12 tracking-wide font-sans">
             Experienced full-stack web developer and software engineer skilled in designing responsive interfaces, optimization strategies, and robust version-controlled systems.
           </p>
 
@@ -84,7 +84,7 @@ export default function Hero() {
             <a
               href="/resume.pdf"
               download
-              className="flex items-center gap-2 px-6 py-3.5 bg-white/5 border border-white/10 hover:border-white/20 text-gray-400 hover:text-white transition-all duration-200"
+              className="flex items-center gap-2 px-6 py-3.5 bg-white/5 border border-white/10 hover:border-white/20 text-gray-300 hover:text-white transition-all duration-200"
             >
               <span>DOWNLOAD_CV</span>
             </a>
@@ -118,13 +118,13 @@ export default function Hero() {
           </div>
 
           {/* Clean technology metric descriptors */}
-          <div className="grid grid-cols-2 gap-4 mt-8 border-t border-white/5 pt-8 font-mono text-[11px] text-gray-500">
+          <div className="grid grid-cols-2 gap-4 mt-8 border-t border-white/5 pt-8 font-mono text-[11px] text-gray-400">
             <div>
-              <div className="text-[9px] text-gray-600 tracking-widest uppercase">AUDIT_PROTOCOL</div>
+              <div className="text-[9px] text-gray-500 tracking-widest uppercase">AUDIT_PROTOCOL</div>
               <div className="text-white font-bold mt-1">STATIC LINT & BUILD PREVIEWS</div>
             </div>
             <div>
-              <div className="text-[9px] text-gray-600 tracking-widest uppercase">PIPELINE_ENGINE</div>
+              <div className="text-[9px] text-gray-500 tracking-widest uppercase">PIPELINE_ENGINE</div>
               <div className="text-white font-bold mt-1">CONTINUOUS INTEGRATION (CI)</div>
             </div>
           </div>
@@ -133,7 +133,7 @@ export default function Hero() {
       </div>
       
       {/* Bottom border grid element */}
-      <div className="h-12 border-t border-white/5 max-w-7xl mx-auto w-full flex items-center px-8 justify-between font-mono text-[10px] text-gray-600">
+      <div className="h-12 border-t border-white/5 max-w-7xl mx-auto w-full flex items-center px-8 justify-between font-mono text-[10px] text-gray-400">
         <span>PORT: 5173</span>
         <span>SOURAV GOSWAMI © {new Date().getFullYear()}</span>
       </div>

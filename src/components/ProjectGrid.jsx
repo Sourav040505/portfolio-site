@@ -120,7 +120,7 @@ export default function ProjectGrid() {
               <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight mt-4 font-sans">
                 Interactive Directory
               </h2>
-              <p className="text-gray-400 mt-4 text-xs leading-relaxed font-sans">
+              <p className="text-gray-200 mt-4 text-xs leading-relaxed font-sans">
                 A structured registry of software projects and open-source contributions. Use the filter filters below to query modules.
               </p>
             </div>
@@ -167,7 +167,7 @@ export default function ProjectGrid() {
                   className="w-full text-left p-6 sm:p-8 flex items-center justify-between font-mono text-[11px] tracking-wider group focus:outline-none"
                 >
                   <div className="flex items-center gap-6">
-                    <span className="text-gray-600 font-bold group-hover:text-indigo-400 transition-colors">
+                    <span className="text-gray-400 font-bold group-hover:text-indigo-400 transition-colors">
                       {project.index}
                     </span>
                     <span className="font-bold text-white group-hover:text-indigo-400 transition-colors text-xs sm:text-sm">
@@ -175,11 +175,11 @@ export default function ProjectGrid() {
                     </span>
                   </div>
 
-                  <div className="flex items-center gap-6 text-gray-500">
-                    <span className="hidden sm:inline-block text-[10px] uppercase font-semibold px-2 py-0.5 border border-white/5 bg-white/5">
+                  <div className="flex items-center gap-6 text-gray-400">
+                    <span className="hidden sm:inline-block text-[10px] uppercase font-semibold px-2 py-0.5 border border-white/10 bg-white/5">
                       {project.category}
                     </span>
-                    <span className="hidden md:inline-block text-gray-600">
+                    <span className="hidden md:inline-block text-gray-400">
                       {project.level}
                     </span>
                     {isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
@@ -194,7 +194,7 @@ export default function ProjectGrid() {
                         <span className="text-[10px] font-mono tracking-widest text-indigo-400 uppercase">
                           {project.subtitle}
                         </span>
-                        <p className="text-gray-300 text-xs sm:text-sm leading-relaxed font-sans">
+                        <p className="text-gray-100 text-xs sm:text-sm leading-relaxed font-sans">
                           {project.description}
                         </p>
                       </div>
@@ -204,7 +204,7 @@ export default function ProjectGrid() {
                         {project.tech.map((tag) => (
                           <span 
                             key={tag}
-                            className="text-[10px] font-mono text-gray-500 bg-white/5 border border-white/5 px-2.5 py-1 rounded-sm"
+                            className="text-[10px] font-mono text-gray-300 bg-white/5 border border-white/10 px-2.5 py-1 rounded-sm"
                           >
                             {tag}
                           </span>
@@ -216,11 +216,11 @@ export default function ProjectGrid() {
                       {/* Specifications List */}
                       <div className="space-y-4 font-mono text-[10px]">
                         <div>
-                          <span className="text-gray-600 uppercase block tracking-widest">METRIC_TYPE</span>
+                          <span className="text-gray-400 uppercase block tracking-widest">METRIC_TYPE</span>
                           <span className="text-white block font-bold mt-0.5 uppercase">{project.metrics.title}</span>
                         </div>
                         <div>
-                          <span className="text-gray-600 uppercase block tracking-widest">SPECIFICATION</span>
+                          <span className="text-gray-400 uppercase block tracking-widest">SPECIFICATION</span>
                           <span className="text-white block font-bold mt-0.5 uppercase">{project.metrics.value}</span>
                         </div>
                       </div>

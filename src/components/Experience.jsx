@@ -72,7 +72,7 @@ export default function Experience() {
                 {/* Index / Tag */}
                 <div className="flex items-center justify-between font-mono text-[10px] text-gray-500 mb-8 pb-4 border-b border-white/5">
                   <span>[ {exp.index} ]</span>
-                  <span className="text-gray-600 group-hover:text-indigo-400 transition-colors">
+                  <span className="text-gray-400 group-hover:text-indigo-400 transition-colors">
                     {exp.tag}
                   </span>
                 </div>
@@ -90,8 +90,8 @@ export default function Experience() {
                 {/* Points */}
                 <ul className="space-y-4">
                   {exp.points.map((point, pIdx) => (
-                    <li key={pIdx} className="text-gray-500 text-xs leading-relaxed flex items-start gap-2.5 font-sans group-hover:text-gray-400 transition-colors">
-                      <span className="w-1 h-1 rounded-full bg-indigo-500/60 mt-1.5 shrink-0" />
+                    <li key={pIdx} className="text-gray-300 text-xs leading-relaxed flex items-start gap-2.5 font-sans group-hover:text-white transition-colors">
+                      <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-1.5 shrink-0" />
                       <span>{point}</span>
                     </li>
                   ))}
@@ -99,7 +99,7 @@ export default function Experience() {
               </div>
 
               {/* Footer Meta */}
-              <div className="mt-12 pt-4 border-t border-white/5 flex flex-col gap-2 font-mono text-[9px] text-gray-600">
+              <div className="mt-12 pt-4 border-t border-white/5 flex flex-col gap-2 font-mono text-[9px] text-gray-400">
                 <div className="flex items-center gap-1.5">
                   <Calendar size={10} />
                   <span>{exp.period}</span>
