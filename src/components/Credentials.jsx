@@ -1,5 +1,5 @@
 import React from 'react';
-import { GraduationCap, Award, CheckCircle2, BookOpen } from 'lucide-react';
+import { GraduationCap, Award, CheckCircle2 } from 'lucide-react';
 
 export default function Credentials() {
   const education = [

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Briefcase, Users, Lightbulb, Calendar, ExternalLink } from 'lucide-react';
+import { Briefcase, Users, Lightbulb, Calendar } from 'lucide-react';
 
 export default function Experience() {
   const experiences = [
