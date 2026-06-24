@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Github, ExternalLink, ShieldCheck, Zap, Database } from 'lucide-react';
+import { Github, ExternalLink, ShieldCheck, Zap, Database, Chrome, Layers, Settings, Code2 } from 'lucide-react';
 
 export default function ProjectGrid() {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -9,7 +9,8 @@ export default function ProjectGrid() {
       id: 'hookcraft',
       title: 'HookCraft AI',
       level: 'Level 1',
-      subtitle: 'Viral Short-Form Brainstormer',
+      subtitle: 'AI State Logic / Content Engine',
+      category: 'AI & ML',
       description: 'Viral Short-Form Content Brainstormer built in a single weekend. Powered by AI state logic, version-controlled with GitHub Desktop, and shipped to Vercel.',
       tech: ['React', 'AI State Logic', 'Tailwind CSS', 'Vite'],
       github: 'https://github.com/Sourav040505/hookcraft-ai',
@@ -18,10 +19,24 @@ export default function ProjectGrid() {
       metrics: { title: 'Timeline', value: '48 Hours' }
     },
     {
+      id: 'echo-chamber',
+      title: 'Echo Chamber',
+      level: 'Level 1',
+      subtitle: 'Chrome Extension / Utility',
+      category: 'Web Dev',
+      description: 'A full-featured browser extension designed to enhance user browsing experience. Implemented modular frontend architecture, event-driven programming, and direct DOM manipulation.',
+      tech: ['JavaScript', 'Chrome Extension API', 'DOM API', 'Event Flow'],
+      github: 'https://github.com/Sourav040505/Echo-Chamber-Extension',
+      live: 'https://github.com/Sourav040505/Echo-Chamber-Extension',
+      icon: <Chrome className="text-blue-400" size={24} />,
+      metrics: { title: 'Platform', value: 'Chrome Web Store' }
+    },
+    {
       id: 'storefront',
       title: 'Secure Digital Storefront',
       level: 'Level 2',
-      subtitle: 'Premium E-Commerce Interface',
+      subtitle: 'State Architecture / Stripe API',
+      category: 'Web Dev',
       description: 'High-Conversion E-Commerce Interface handling complex state logic, local storage carts, and secure Stripe payment gateway parameters.',
       tech: ['React State', 'Vite', 'Stripe API', 'Tailwind CSS'],
       github: 'https://github.com/Sourav040505/apexui-storefront',
@@ -30,24 +45,51 @@ export default function ProjectGrid() {
       metrics: { title: 'State Security', value: 'Encrypted' }
     },
     {
+      id: 'fossee-redesign',
+      title: 'FOSSEE Workshop Redesign',
+      level: 'Level 2',
+      subtitle: 'IIT Bombay Open-Source',
+      category: 'Web Dev',
+      description: 'Redesigned and improved the FOSSEE workshop platform at IIT Bombay—a high-traffic educational web application. Applied advanced UI/UX principles, optimized structure, and optimized backend.',
+      tech: ['Python', 'Django', 'HTML5/CSS3', 'UI Optimization'],
+      github: 'https://github.com/Sourav040505',
+      live: '#',
+      icon: <Layers className="text-purple-400" size={24} />,
+      metrics: { title: 'Origin', value: 'IIT Bombay' }
+    },
+    {
       id: 'dashboard',
       title: 'EdTech Lead-Gen Dashboard',
       level: 'Level 3',
-      subtitle: 'Supabase User Portal',
+      subtitle: 'Asynchronous DB / Realtime Analytics',
+      category: 'AI & ML',
       description: 'Persistent user portal utilizing an asynchronous @supabase/supabase-js database integration, secure environment variables, and live budget calculation mathematics.',
       tech: ['Supabase', 'Asynchronous DB', 'Environment Encryption', 'Budget Engine'],
       github: 'https://github.com/Sourav040505',
       live: '#',
       icon: <Database className="text-indigo-400" size={24} />,
       metrics: { title: 'DB Queries', value: 'Async Realtime' }
+    },
+    {
+      id: 'ccrm',
+      title: 'CCRM OOP App',
+      level: 'Level 3',
+      subtitle: 'Java Algorithms / Object Model',
+      category: 'Software Systems',
+      description: 'Built a Java-based application applying core OOP principles including encapsulation, inheritance, and polymorphism. Practised clean data structures implementation and clean code architecture.',
+      tech: ['Java', 'Object Oriented Design', 'Data Structures', 'Algorithms'],
+      github: 'https://github.com/Sourav040505',
+      live: '#',
+      icon: <Code2 className="text-rose-400" size={24} />,
+      metrics: { title: 'Design Pattern', value: 'OOP / Clean Code' }
     }
   ];
 
-  const filterOptions = ['All', 'Level 1', 'Level 2', 'Level 3'];
+  const filterOptions = ['All', 'Web Dev', 'AI & ML', 'Software Systems'];
 
   const filteredProjects = activeFilter === 'All' 
     ? projects 
-    : projects.filter(p => p.level === activeFilter);
+    : projects.filter(p => p.category === activeFilter);
 
   return (
     <section id="projects" className="py-32 px-6 bg-black relative">
@@ -63,7 +105,7 @@ export default function ProjectGrid() {
               Interactive Showcase Grid
             </h3>
             <p className="text-gray-400 mt-4 max-w-xl text-base">
-              A curated directory of engineering artifacts built using agile methods and agent orchestration.
+              A curated directory of engineering artifacts and open-source contributions built using advanced architecture.
             </p>
           </div>
 
@@ -86,7 +128,7 @@ export default function ProjectGrid() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project) => (
             <div 
               key={project.id}
@@ -141,10 +183,10 @@ export default function ProjectGrid() {
                 </div>
                 <div className="text-right">
                   <div className="text-[10px] uppercase text-gray-500 font-semibold tracking-wider">
-                    Stack Type
+                    Type
                   </div>
                   <div className="text-sm font-bold text-indigo-300 mt-0.5">
-                    Production
+                    {project.category}
                   </div>
                 </div>
               </div>
