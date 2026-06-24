@@ -4,22 +4,16 @@ import { GraduationCap, Award, CheckCircle2 } from 'lucide-react';
 export default function Credentials() {
   const education = [
     {
-      institution: 'VIT BHOPAL UNIVERSITY',
+      institution: 'VELLORE INSTITUTE OF TECHNOLOGY',
       degree: 'B.TECH, COMPUTER SCIENCE ENGINEERING',
       timeline: '2024 – 2028',
-      details: 'Focusing on core software engineering, data structures, algorithms, and AI/ML architectures.'
+      details: 'Focusing on core software engineering principles, algorithm design, data structures, and ML/AI architectures.'
     },
     {
       institution: 'CODING NINJAS (IIT-M PARTNERED)',
       degree: 'ADVANCED DSA & JAVA TRAINING',
       timeline: 'APR 2025 – AUG 2025',
       details: 'IIT-M Partnered Training & Internship Certification focusing on complex algorithmic problem solving.'
-    },
-    {
-      institution: 'SAI INTERNATIONAL SCHOOL',
-      degree: 'HIGH SCHOOL DIPLOMA — SCIENCE (PCMB)',
-      timeline: '2021 – 2023',
-      details: 'Rigorous mathematical base focusing on physics, chemistry, mathematics, and biology.'
     }
   ];
 

@@ -62,7 +62,7 @@ export default function Hero() {
           </h1>
 
           <p className="text-gray-400 text-sm sm:text-base max-w-xl leading-relaxed mb-12 tracking-wide font-sans">
-            B.Tech Computer Science Engineering student at <strong>VIT Bhopal</strong> (GPA: 8.5) specializing in Educational Technology. Operating as an engineering manager orchestrating autonomous AI agents to build scalable web software.
+            Software Engineer and ML/AI Developer specializing in building high-conversion interfaces and orchestrating autonomous agent systems for scalable web architectures.
           </p>
 
           {/* Minimalist interactive CTAs */}
@@ -120,15 +120,15 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Quick Monospace Stat Block */}
+          {/* Clean technology metric descriptors */}
           <div className="grid grid-cols-2 gap-4 mt-8 border-t border-white/5 pt-8 font-mono text-[11px] text-gray-500">
             <div>
-              <div className="text-[9px] text-gray-600 tracking-widest uppercase">ACADEMICS</div>
-              <div className="text-white font-bold mt-1">B.TECH CSE // VIT BHOPAL</div>
+              <div className="text-[9px] text-gray-600 tracking-widest uppercase">AUDIT_PROTOCOL</div>
+              <div className="text-white font-bold mt-1">STATIC LINT & BUILD PREVIEWS</div>
             </div>
             <div>
-              <div className="text-[9px] text-gray-600 tracking-widest uppercase">VELOCITY</div>
-              <div className="text-white font-bold mt-1">5X SPEED // AGENT DEPLOYED</div>
+              <div className="text-[9px] text-gray-600 tracking-widest uppercase">PIPELINE_ENGINE</div>
+              <div className="text-white font-bold mt-1">MULTI-AGENT COORDINATION</div>
             </div>
           </div>
         </div>

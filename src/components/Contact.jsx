@@ -1,22 +1,14 @@
 import React, { useState } from 'react';
-import { Copy, Check, Terminal } from 'lucide-react';
+import { Copy, Check, Terminal, Mail } from 'lucide-react';
 
 export default function Contact() {
   const [copiedEmail, setCopiedEmail] = useState(false);
-  const [copiedPhone, setCopiedPhone] = useState(false);
-
   const email = 'souravgoswami2005@gmail.com';
-  const phone = '+91 8260296880';
 
-  const copyToClipboard = (text, type) => {
+  const copyToClipboard = (text) => {
     navigator.clipboard.writeText(text);
-    if (type === 'email') {
-      setCopiedEmail(true);
-      setTimeout(() => setCopiedEmail(false), 2000);
-    } else {
-      setCopiedPhone(true);
-      setTimeout(() => setCopiedPhone(false), 2000);
-    }
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 2000);
   };
 
   return (
@@ -53,7 +45,7 @@ export default function Contact() {
                 Onboarding Pitch
               </h3>
               <p className="text-gray-400 text-xs sm:text-sm leading-relaxed font-sans">
-                Currently available for Q3/Q4 engineering contracts, developer developer relations roles, and agent system integration consulting. Secure, automated delivery protocols guaranteed.
+                Currently available for software engineering roles, team integrations, and autonomous pipeline setups. Clean delivery and standard versioning flows guaranteed.
               </p>
               <div className="flex items-center gap-2 font-mono text-[10px] text-emerald-400">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
@@ -65,38 +57,22 @@ export default function Contact() {
             <div className="md:col-span-6 space-y-4 font-mono text-[11px] tracking-wider">
               
               {/* Email Row */}
-              <div className="p-4 bg-[#050508]/60 border border-white/5 flex items-center justify-between rounded-md">
-                <div>
-                  <div className="text-[9px] text-gray-600 uppercase">SYS_VAR // EMAIL</div>
-                  <div className="text-white font-bold mt-1 select-all">{email}</div>
+              <div className="p-6 bg-[#050508]/60 border border-white/5 flex items-center justify-between rounded-md">
+                <div className="flex items-center gap-3">
+                  <div className="p-2.5 bg-indigo-500/10 border border-indigo-500/20 rounded-md text-indigo-400">
+                    <Mail size={16} />
+                  </div>
+                  <div>
+                    <div className="text-[9px] text-gray-600 uppercase">SYS_VAR // EMAIL</div>
+                    <div className="text-white font-bold mt-1 select-all">{email}</div>
+                  </div>
                 </div>
                 <button
-                  onClick={() => copyToClipboard(email, 'email')}
-                  className="p-2 border border-white/5 hover:border-white/20 text-gray-400 hover:text-white transition-all bg-black"
-                  title="Copy variables"
+                  onClick={() => copyToClipboard(email)}
+                  className="p-2.5 border border-white/5 hover:border-white/20 text-gray-400 hover:text-white transition-all bg-black"
+                  title="Copy email address"
                 >
                   {copiedEmail ? (
-                    <span className="text-[9px] text-emerald-400 font-bold flex items-center gap-1">
-                      <Check size={10} /> COPIED
-                    </span>
-                  ) : (
-                    <Copy size={12} />
-                  )}
-                </button>
-              </div>
-
-              {/* Phone Row */}
-              <div className="p-4 bg-[#050508]/60 border border-white/5 flex items-center justify-between rounded-md">
-                <div>
-                  <div className="text-[9px] text-gray-600 uppercase">SYS_VAR // PHONE</div>
-                  <div className="text-white font-bold mt-1 select-all">{phone}</div>
-                </div>
-                <button
-                  onClick={() => copyToClipboard(phone, 'phone')}
-                  className="p-2 border border-white/5 hover:border-white/20 text-gray-400 hover:text-white transition-all bg-black"
-                  title="Copy variables"
-                >
-                  {copiedPhone ? (
                     <span className="text-[9px] text-emerald-400 font-bold flex items-center gap-1">
                       <Check size={10} /> COPIED
                     </span>

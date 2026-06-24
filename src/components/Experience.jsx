@@ -5,16 +5,16 @@ export default function Experience() {
   const experiences = [
     {
       index: '01',
-      role: 'STUDENT_DEVELOPER_&_RESEARCHER',
-      company: 'VIT BHOPAL UNIVERSITY',
+      role: 'DEVELOPER_&_RESEARCHER',
+      company: 'SOFTWARE SYSTEMS LAB',
       period: 'AUG 2024 - PRESENT',
       location: 'BHOPAL, MP',
       points: [
-        'Pursuing B.Tech in Computer Science Engineering focusing on software engineering, web development, and ML/AI models.',
-        'Self-driven work spanning data structures, algorithms, full-stack, and machine learning implementations in active code repositories.',
-        'Co-founder, PRXSRV — early-stage technology venture demonstrating product thinking and rapid entrepreneurial execution.'
+        'Research and development focusing on software engineering principles, web development, and ML/AI models.',
+        'Self-driven work spanning data structures, algorithms, full-stack web architectures, and machine learning implementations in active repositories.',
+        'Co-founder, PRXSRV — early-stage technology venture demonstrating product thinking and rapid software delivery.'
       ],
-      tag: 'ACADEMICS & VENTURES'
+      tag: 'RESEARCH & VENTURES'
     },
     {
       index: '02',
@@ -31,7 +31,7 @@ export default function Experience() {
     {
       index: '03',
       role: 'INNOVATION_&_ENTREPRENEURSHIP',
-      company: 'E-CELL VIT BHOPAL',
+      company: 'E-CELL COMMUNITY',
       period: 'NOV 2024 - MAY 2025',
       location: 'BHOPAL, MP',
       points: [
@@ -56,7 +56,7 @@ export default function Experience() {
               Experience
             </h2>
             <p className="text-gray-400 text-xs leading-relaxed font-sans">
-              A comprehensive chronicle of academic research, tech leadership, and early-stage startup ventures.
+              A comprehensive chronicle of software engineering, tech leadership, and early-stage startup ventures.
             </p>
           </div>
         </div>
