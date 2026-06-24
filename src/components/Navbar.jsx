@@ -25,7 +25,7 @@ function ScrambleText({ text }) {
         clearInterval(interval);
       }
 
-      iteration += 1 / 3; // speed of decryption
+      iteration += 1 / 3;
     }, 25);
   };
 
@@ -61,17 +61,18 @@ export default function Navbar() {
     { label: 'PROJECTS', href: '#projects' },
     { label: 'EXPERIENCE', href: '#experience' },
     { label: 'CREDENTIALS', href: '#education' },
+    { label: 'SYSTEM_FEED', href: '#monitor' },
     { label: 'DEV_STACK', href: '#stack' },
     { label: 'CONTACT', href: '#contact' }
   ];
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
+    <header className="fixed top-0 left-0 w-full z-50 bg-black/90 backdrop-blur-lg border-b border-white/10 shadow-lg shadow-black/30">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between font-mono text-[11px] tracking-wider">
         {/* Brand */}
         <div className="flex items-center gap-4">
           <a href="#" className="font-bold text-white tracking-widest flex items-center gap-2">
-            <Terminal size={14} className="text-indigo-400 animate-pulse" />
+            <Terminal size={14} className="text-indigo-400" />
             <ScrambleText text="SOURAV_GOSWAMI.IO" />
           </a>
           <span className="hidden sm:inline-block text-[9px] text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-sm">

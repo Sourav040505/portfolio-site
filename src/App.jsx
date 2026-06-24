@@ -4,13 +4,14 @@ import Hero from './components/Hero';
 import ProjectGrid from './components/ProjectGrid';
 import Experience from './components/Experience';
 import Credentials from './components/Credentials';
+import SystemMonitor from './components/SystemMonitor';
 import TechStack from './components/TechStack';
 import Contact from './components/Contact';
 import CustomCursor from './components/CustomCursor';
 
 function Footer() {
   return (
-    <footer className="py-12 bg-black font-mono text-[10px] text-gray-600 border-t border-white/5 max-w-7xl mx-auto w-full border-x">
+    <footer className="py-12 bg-black font-mono text-[10px] text-gray-600 border-t border-white/10 max-w-7xl mx-auto w-full border-x">
       <div className="px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div>
           © {new Date().getFullYear()} SOURAV_GOSWAMI. ALL RIGHTS RESERVED.
@@ -43,6 +44,7 @@ function App() {
         <ProjectGrid />
         <Experience />
         <Credentials />
+        <SystemMonitor />
         <TechStack />
         <Contact />
       </main>
