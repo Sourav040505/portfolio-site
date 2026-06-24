@@ -5,39 +5,39 @@ export default function TechStack() {
   const steps = [
     {
       index: '01',
-      name: 'Google Antigravity',
-      role: 'AGENT ORCHESTRATION',
+      name: 'VS Code & Git',
+      role: 'DEVELOPMENT WORKSPACE',
       icon: <Cpu className="text-indigo-400" size={20} />,
       metrics: [
-        'MODEL: AGY.OS v4.1',
-        'VERIFIED COHERENCE: 99.8%',
-        'TICK LATENCY: 42MS'
+        'IDE: VS CODE / SHELL',
+        'CONTROL: LOCAL GIT',
+        'WORKSPACE: STABLE'
       ],
-      description: 'Coordinates workspace audits, structural redesign logic, and autonomous codebase edits in sandboxed containers.'
+      description: 'Managing source directories, writing modular code blocks, and tracking micro-changes using standard terminal structures.'
     },
     {
       index: '02',
-      name: 'GitHub Desktop',
-      role: 'DELTA INTEGRITY',
+      name: 'GitHub Platform',
+      role: 'VERSION AUDITING',
       icon: <GitCompare className="text-purple-400" size={20} />,
       metrics: [
         'BRANCH: MAIN // HEAD',
-        'DELTA SCAN: CLEAN',
-        'AUDITOR: SYSTEM.ACTIVE'
+        'AUDITOR: GIT REVIEW',
+        'DIFFS: ATOMIC'
       ],
-      description: 'Reviews code diffs line-by-line, runs code lint analysis, and manages version history with structured commits.'
+      description: 'Reviewing code deltas, managing pull requests, and maintaining strict codebase integrity through branching workflows.'
     },
     {
       index: '03',
       name: 'Vercel / Netlify',
-      role: 'CD EDGE ROUTING',
+      role: 'CI/CD HOSTING',
       icon: <Globe className="text-pink-400" size={20} />,
       metrics: [
         'EDGE NET: GLOBAL',
-        'TIME_TO_LIVE: <30s',
-        'BUILD STATE: SUCCESS'
+        'PREVIEWS: INSTANT',
+        'PIPELINE: BUILD READY'
       ],
-      description: 'Deploys static build outputs, configures CDN networks, and exposes preview URL pipelines directly on push.'
+      description: 'Automating build scripts, setting up secure webhook triggers, and serving optimized bundles across global edge nodes.'
     }
   ];
 
@@ -52,10 +52,10 @@ export default function TechStack() {
               Pipeline Integration
             </span>
             <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight font-sans">
-              AI Stack
+              Dev Stack
             </h2>
             <p className="text-gray-400 text-xs leading-relaxed font-sans">
-              Flow chart of automated agent orchestration, auditing, and continuous edge compilation.
+              Flow chart of version control integration, static verification, and continuous deployment.
             </p>
           </div>
         </div>
@@ -65,7 +65,7 @@ export default function TechStack() {
           
           <div className="flex items-center gap-2.5 font-mono text-[10px] tracking-wider text-gray-500 pb-4 border-b border-white/5">
             <Terminal size={14} className="text-indigo-400" />
-            <span>PIPELINE_ORCHESTRATION // WORKFLOW STAGES</span>
+            <span>ENGINEERING_STACK // WORKFLOW STAGES</span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
@@ -120,8 +120,8 @@ export default function TechStack() {
 
           {/* Delivery Note */}
           <div className="border border-white/5 rounded-md p-6 bg-white/[0.01] font-mono text-[10px] text-gray-500 leading-relaxed">
-            <span className="text-indigo-400 font-bold block mb-1">AUTOMATED WORKSPACE DELIVERY</span>
-            This entire setup is built by orchestrating Google Antigravity agents running within a secure Mac/zsh terminal sandbox. Standardized file writes, post-install dependency trees, and linter validation runs are fully automated.
+            <span className="text-indigo-400 font-bold block mb-1">CONTINUOUS INTEGRATION & VERIFICATION</span>
+            This workspace follows clean software engineering guidelines. Codebases are verified using ESLint and fast static compiler configurations before bundles are compiled and deployed to global edge CDNs.
           </div>
 
         </div>

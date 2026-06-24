@@ -3,19 +3,19 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #000000;
-  --color-background-elevated: #050507;
-  --color-card: #08080C;
-  --color-borderStroke: #12121A;
-  --color-accent: #4F46E5;
-  --color-accent-dim: rgba(79, 70, 229, 0.15);
+  --color-background: #0B0B0F;
+  --color-background-elevated: #111116;
+  --color-card: #14141B;
+  --color-borderStroke: #1E1E2A;
+  --color-accent: #6366F1;
+  --color-accent-dim: rgba(99, 102, 241, 0.15);
   
   --font-sans: 'Outfit', 'Inter', -apple-system, sans-serif;
   --font-mono: 'Fira Code', monospace;
 }
 
 @utility grid-border {
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 @utility text-gradient {
@@ -27,8 +27,8 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    background-color: #000000;
-    color: #E2E8F0;
+    background-color: #0B0B0F;
+    color: #F1F5F9;
   }
 
   body {
@@ -40,27 +40,35 @@
 
   /* Custom scrollbar matching futuristic interface */
   ::-webkit-scrollbar {
-    width: 4px;
-    height: 4px;
+    width: 6px;
+    height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #000000;
+    background: #0B0B0F;
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
   }
   ::-webkit-scrollbar-thumb {
-    background: #1A1A24;
+    background: #1E1E2A;
     border-radius: 0;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #4F46E5;
+    background: #6366F1;
+  }
+
+  /* Hide default cursor on desktop for custom futuristic cursor */
+  @media (pointer: fine) {
+    body, a, button, [role="button"] {
+      cursor: none !important;
+    }
   }
 }
 
-/* Blueprint structural grids */
+/* Blueprint structural grids - higher opacity line visibility */
 .blueprint-grid {
   background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
 }
 
 /* Noise overlay effect */
@@ -71,7 +79,7 @@
   width: 100vw;
   height: 100vh;
   content: "";
-  opacity: 0.02;
+  opacity: 0.03;
   pointer-events: none;
   z-index: 9999;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
@@ -97,9 +105,9 @@
   background: linear-gradient(
     to bottom,
     transparent 0%,
-    rgba(79, 70, 229, 0.05) 50%,
+    rgba(99, 102, 241, 0.06) 50%,
     transparent 100%
   );
-  animation: scanline 8s linear infinite;
+  animation: scanline 10s linear infinite;
   pointer-events: none;
 }

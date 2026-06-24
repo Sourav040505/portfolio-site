@@ -2,22 +2,20 @@ import React, { useState, useEffect } from 'react';
 import { ArrowRight, RefreshCw } from 'lucide-react';
 
 const logs = [
-  'Initializing AGY.OS v4.1.2 kernel...',
-  'Loading workspace config: /Users/sourav/Web-Dev-Projects',
-  'Cognitive Orchestrator: Antigravity model online.',
-  'Establishing secure sandbox environment...',
-  'Scanning local directories for code changes...',
-  '--> Delta audit: 6 modified files detected.',
-  '--> Launching verification pipeline...',
-  'Testing code compilation... [Success]',
-  'Executing ESLint & Oxlint diagnostics... [0 warnings]',
-  'Production build initialized: npm run build',
-  'Bundle sizes compiled successfully:',
+  'Initializing build environment...',
+  'Checking repository branch: origin/main... up to date',
+  'Loading configuration variables... success',
+  'Executing static code audits... [Oxlint: Clean]',
+  'Running unit verification tests... [PASS]',
+  'Starting production compilation: vite build',
+  'Analyzing bundle dependency graph...',
+  'Transforming source assets with ESBuild...',
+  'Static assets bundled successfully:',
   '  - dist/index.html       (1.38 kB)',
-  '  - dist/assets/index.css (41.18 kB)',
-  '  - dist/assets/index.js  (233.27 kB)',
-  'Continuous Deployment: Vercel hooks listening.',
-  'SYS: ALL SYSTEMS GREEN // READY FOR DEPLOY'
+  '  - dist/assets/index.css (30.46 kB)',
+  '  - dist/assets/index.js  (229.65 kB)',
+  'Continuous Integration: Vercel hooks configured.',
+  'STATUS: COMPILED SUCCESSFULLY // PRODUCTION READY'
 ];
 
 export default function Hero() {
@@ -29,7 +27,7 @@ export default function Hero() {
       const timer = setTimeout(() => {
         setTerminalLines((prev) => [...prev, logs[lineIdx]]);
         setLineIdx((prev) => prev + 1);
-      }, 900 + Math.random() * 400);
+      }, 800 + Math.random() * 400);
       return () => clearTimeout(timer);
     } else {
       const resetTimer = setTimeout(() => {
@@ -49,20 +47,19 @@ export default function Hero() {
         <div className="lg:col-span-7 flex flex-col justify-center p-8 sm:p-12 lg:p-16 border-b lg:border-b-0 lg:border-r border-white/5">
           <div className="flex items-center gap-2 text-indigo-400 font-mono text-[10px] tracking-[0.25em] uppercase mb-8">
             <span className="w-1.5 h-1.5 bg-indigo-500 rounded-sm" />
-            <span>Augmented Engineering Manager</span>
+            <span>Software Engineer & Developer</span>
           </div>
 
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.05] mb-8 font-sans">
-            Building the <br />
-            Future{' '}
+            Building High- <br />
+            Performance <br />
             <span className="text-gradient">
-              5x Faster
-            </span> <br />
-            with AI Agents.
+              Web Software.
+            </span>
           </h1>
 
           <p className="text-gray-400 text-sm sm:text-base max-w-xl leading-relaxed mb-12 tracking-wide font-sans">
-            Software Engineer and ML/AI Developer specializing in building high-conversion interfaces and orchestrating autonomous agent systems for scalable web architectures.
+            Experienced full-stack web developer and software engineer skilled in designing responsive interfaces, optimization strategies, and robust version-controlled systems.
           </p>
 
           {/* Minimalist interactive CTAs */}
@@ -99,14 +96,14 @@ export default function Hero() {
           <div className="flex-grow bg-[#050508]/80 border border-white/5 p-6 rounded-md font-mono text-[11px] text-gray-400 overflow-hidden min-h-[350px] lg:min-h-0 flex flex-col justify-between shadow-2xl relative">
             <div className="absolute top-2 right-3 flex items-center gap-1.5 text-[9px] text-gray-600">
               <RefreshCw size={10} className="animate-spin text-indigo-400" />
-              <span>LIVE FEED</span>
+              <span>CI/CD PIPELINE</span>
             </div>
 
             <div className="space-y-2 overflow-y-auto max-h-[350px] pr-2 scrollbar-thin">
               {terminalLines.map((line, idx) => (
                 <div key={idx} className="leading-relaxed">
                   <span className="text-indigo-500 mr-2">$</span>
-                  <span className={line.includes('[Success]') || line.includes('GREEN') ? 'text-emerald-400' : ''}>
+                  <span className={line.includes('[PASS]') || line.includes('SUCCESSFULLY') ? 'text-emerald-400' : ''}>
                     {line}
                   </span>
                 </div>
@@ -115,8 +112,8 @@ export default function Hero() {
             </div>
             
             <div className="mt-6 pt-4 border-t border-white/5 text-[9px] text-gray-600 flex justify-between">
-              <span>SANDBOX HOST: LOCALHOST:5173</span>
-              <span>AGENT_STATUS: IDLE</span>
+              <span>HOST: LOCALHOST:5173</span>
+              <span>COMPILER: ACTIVE</span>
             </div>
           </div>
 
@@ -128,7 +125,7 @@ export default function Hero() {
             </div>
             <div>
               <div className="text-[9px] text-gray-600 tracking-widest uppercase">PIPELINE_ENGINE</div>
-              <div className="text-white font-bold mt-1">MULTI-AGENT COORDINATION</div>
+              <div className="text-white font-bold mt-1">CONTINUOUS INTEGRATION (CI)</div>
             </div>
           </div>
         </div>
@@ -137,7 +134,7 @@ export default function Hero() {
       
       {/* Bottom border grid element */}
       <div className="h-12 border-t border-white/5 max-w-7xl mx-auto w-full flex items-center px-8 justify-between font-mono text-[10px] text-gray-600">
-        <span>LATENCY: 42MS</span>
+        <span>PORT: 5173</span>
         <span>SOURAV GOSWAMI © {new Date().getFullYear()}</span>
       </div>
     </section>

@@ -18,7 +18,7 @@ export default function Navbar() {
     { label: 'PROJECTS', href: '#projects' },
     { label: 'EXPERIENCE', href: '#experience' },
     { label: 'CREDENTIALS', href: '#education' },
-    { label: 'AI_STACK', href: '#stack' },
+    { label: 'DEV_STACK', href: '#stack' },
     { label: 'CONTACT', href: '#contact' }
   ];
 
@@ -29,10 +29,10 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
           <a href="#" className="font-bold text-white tracking-widest flex items-center gap-2">
             <Terminal size={14} className="text-indigo-400" />
-            <span>SOURAV_GOSWAMI.OS</span>
+            <span>SOURAV_GOSWAMI.IO</span>
           </a>
           <span className="hidden sm:inline-block text-[9px] text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-sm">
-            SYS: ACTIVE
+            DEV: ONLINE
           </span>
         </div>
 

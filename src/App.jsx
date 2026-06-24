@@ -6,6 +6,7 @@ import Experience from './components/Experience';
 import Credentials from './components/Credentials';
 import TechStack from './components/TechStack';
 import Contact from './components/Contact';
+import CustomCursor from './components/CustomCursor';
 
 function Footer() {
   return (
@@ -27,6 +28,9 @@ function Footer() {
 function App() {
   return (
     <div className="min-h-screen bg-black text-gray-200 flex flex-col relative font-sans">
+      {/* Interactive Futuristic Mouse Trail Custom Cursor */}
+      <CustomCursor />
+
       {/* Global premium noise texture */}
       <div className="noise-overlay" />
 
