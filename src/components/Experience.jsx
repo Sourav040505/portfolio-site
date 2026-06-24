@@ -1,122 +1,118 @@
 import React from 'react';
-import { Briefcase, Users, Lightbulb, Calendar } from 'lucide-react';
+import { Calendar, MapPin } from 'lucide-react';
 
 export default function Experience() {
   const experiences = [
     {
-      role: 'Student Developer & Researcher',
-      company: 'Vellore Institute of Technology (VIT Bhopal)',
-      period: 'Aug 2024 - Present',
-      location: 'Bhopal, MP',
-      icon: <Briefcase className="text-indigo-400" size={20} />,
+      index: '01',
+      role: 'STUDENT_DEVELOPER_&_RESEARCHER',
+      company: 'VIT BHOPAL UNIVERSITY',
+      period: 'AUG 2024 - PRESENT',
+      location: 'BHOPAL, MP',
       points: [
-        'Pursuing B.Tech in Computer Science Engineering with focus on software engineering, web development, and AI/ML applications.',
-        'Self-driven projects span data structures, algorithms, full-stack web development, and machine learning; applying concepts in real codebases.',
-        'GPA: 8.5 | Co-founder, PRXSRV — early-stage tech venture demonstrating product thinking and entrepreneurial execution.'
+        'Pursuing B.Tech in Computer Science Engineering focusing on software engineering, web development, and ML/AI models.',
+        'Self-driven work spanning data structures, algorithms, full-stack, and machine learning implementations in active code repositories.',
+        'Co-founder, PRXSRV — early-stage technology venture demonstrating product thinking and rapid entrepreneurial execution.'
       ],
-      tag: 'Academic & Dev Lead'
+      tag: 'ACADEMICS & VENTURES'
     },
     {
-      role: 'Tech Community Member',
-      company: 'GDGC VIT Bhopal (Google Developer Groups)',
-      period: 'Dec 2024 - May 2025',
-      location: 'Bhopal, MP',
-      icon: <Users className="text-purple-400" size={20} />,
+      index: '02',
+      role: 'GDGC_COMMUNITY_MEMBER',
+      company: 'GOOGLE DEVELOPER GROUPS',
+      period: 'DEC 2024 - MAY 2025',
+      location: 'BHOPAL, MP',
       points: [
-        'Participated in developer workshops and tech events centered on Google\'s web, cloud, and AI developer ecosystem.',
-        'Collaborated with a peer community of engineers, strengthening communication and software engineering best practices.'
+        'Participated in developer workshops and events centered around Google\'s web, cloud, and AI developer ecosystem.',
+        'Collaborated with a peer community of engineers, strengthening communication and software engineering standards.'
       ],
-      tag: 'Community & Dev'
+      tag: 'COMMUNITY & DEV'
     },
     {
-      role: 'Innovation & Entrepreneurship Member',
-      company: 'E-Cell VIT Bhopal',
-      period: 'Nov 2024 - May 2025',
-      location: 'Bhopal, MP',
-      icon: <Lightbulb className="text-amber-400" size={20} />,
+      index: '03',
+      role: 'INNOVATION_&_ENTREPRENEURSHIP',
+      company: 'E-CELL VIT BHOPAL',
+      period: 'NOV 2024 - MAY 2025',
+      location: 'BHOPAL, MP',
       points: [
         'Contributed to ideathons and startup-focused innovation challenges, developing product framing and problem-solving skills.',
         'Submitted project in Summer of Codefest\'25 Ideathon — Certificate of Participation awarded.'
       ],
-      tag: 'Entrepreneurship'
+      tag: 'ENTREPRENEURSHIP'
     }
   ];
 
   return (
-    <section id="experience" className="py-32 px-6 bg-[#050507] relative overflow-hidden">
-      {/* Background glow blobs */}
-      <div className="absolute top-1/3 left-10 w-[350px] h-[350px] bg-indigo-500/5 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-1/3 right-10 w-[350px] h-[350px] bg-purple-500/5 rounded-full blur-[100px] pointer-events-none" />
-
-      <div className="max-w-5xl mx-auto relative z-10">
-        <div className="text-center mb-20">
-          <span className="text-xs uppercase tracking-widest text-indigo-400 font-bold mb-4 inline-block">
-            Professional Timeline
-          </span>
-          <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
-            Experience & Leadership
-          </h2>
-          <p className="text-gray-400 mt-4 max-w-xl mx-auto text-base">
-            Track record of development, leadership within developer circles, and early-stage startup execution.
-          </p>
+    <section id="experience" className="bg-black relative border-b border-white/5 scroll-mt-16">
+      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 border-x border-white/5">
+        
+        {/* Title Side Section */}
+        <div className="lg:col-span-3 p-8 sm:p-12 border-b lg:border-b-0 lg:border-r border-white/5">
+          <div className="sticky top-24 space-y-4">
+            <span className="text-[10px] font-mono tracking-[0.25em] text-indigo-400 uppercase">
+              Operational History
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight font-sans">
+              Experience
+            </h2>
+            <p className="text-gray-400 text-xs leading-relaxed font-sans">
+              A comprehensive chronicle of academic research, tech leadership, and early-stage startup ventures.
+            </p>
+          </div>
         </div>
 
-        {/* Timeline Layout */}
-        <div className="relative border-l border-[#1F1F29] ml-4 md:ml-32 space-y-12">
-          {experiences.map((exp, idx) => (
-            <div key={idx} className="relative pl-8 md:pl-12 group">
-              {/* Dot Icon Indicator */}
-              <div className="absolute -left-[21px] top-1.5 flex items-center justify-center w-10 h-10 rounded-xl bg-[#0B0B0F] border border-[#1F1F29] group-hover:border-indigo-500/40 transition-all duration-300">
-                {exp.icon}
-              </div>
-
-              {/* Time Label on Desktop */}
-              <div className="hidden md:block absolute right-full mr-12 top-3 text-right">
-                <div className="flex items-center gap-1 text-xs text-gray-500 font-semibold uppercase tracking-wider justify-end">
-                  <Calendar size={12} />
-                  <span>{exp.period}</span>
-                </div>
-                <div className="text-[11px] text-gray-600 mt-1 font-medium">{exp.location}</div>
-              </div>
-
-              {/* Card Container */}
-              <div className="glass-card rounded-2xl p-6 md:p-8">
-                {/* Mobile time label */}
-                <div className="flex flex-col gap-1 md:hidden mb-4 border-b border-white/5 pb-4">
-                  <div className="flex items-center gap-1.5 text-xs text-gray-500 font-bold uppercase tracking-wider">
-                    <Calendar size={12} />
-                    <span>{exp.period}</span>
-                  </div>
-                  <div className="text-xs text-gray-500">{exp.location}</div>
-                </div>
-
-                <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-6">
-                  <div>
-                    <h3 className="text-xl font-bold text-white tracking-tight group-hover:text-indigo-400 transition-colors">
-                      {exp.role}
-                    </h3>
-                    <h4 className="text-sm font-semibold text-gray-400 mt-1">
-                      {exp.company}
-                    </h4>
-                  </div>
-                  <span className="self-start text-[10px] font-bold uppercase tracking-wider text-indigo-400 px-2.5 py-1 rounded-md bg-indigo-500/10 border border-indigo-500/20">
+        {/* 3-Column Experience Grid */}
+        <div className="lg:col-span-9 grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/5">
+          {experiences.map((exp) => (
+            <div 
+              key={exp.index}
+              className="p-8 sm:p-12 flex flex-col justify-between hover:bg-white/[0.01] transition-all duration-300 group"
+            >
+              <div>
+                {/* Index / Tag */}
+                <div className="flex items-center justify-between font-mono text-[10px] text-gray-500 mb-8 pb-4 border-b border-white/5">
+                  <span>[ {exp.index} ]</span>
+                  <span className="text-gray-600 group-hover:text-indigo-400 transition-colors">
                     {exp.tag}
                   </span>
                 </div>
 
-                {/* Bullet Points */}
-                <ul className="space-y-3.5">
+                {/* Role / Company */}
+                <div className="space-y-2 mb-6">
+                  <h3 className="text-base font-bold text-white tracking-tight font-sans group-hover:text-indigo-400 transition-colors">
+                    {exp.role}
+                  </h3>
+                  <p className="text-xs text-gray-400 font-mono tracking-wider">
+                    {exp.company}
+                  </p>
+                </div>
+
+                {/* Points */}
+                <ul className="space-y-4">
                   {exp.points.map((point, pIdx) => (
-                    <li key={pIdx} className="text-gray-400 text-sm leading-relaxed flex items-start gap-2.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-2 shrink-0" />
+                    <li key={pIdx} className="text-gray-500 text-xs leading-relaxed flex items-start gap-2.5 font-sans group-hover:text-gray-400 transition-colors">
+                      <span className="w-1 h-1 rounded-full bg-indigo-500/60 mt-1.5 shrink-0" />
                       <span>{point}</span>
                     </li>
                   ))}
                 </ul>
               </div>
+
+              {/* Footer Meta */}
+              <div className="mt-12 pt-4 border-t border-white/5 flex flex-col gap-2 font-mono text-[9px] text-gray-600">
+                <div className="flex items-center gap-1.5">
+                  <Calendar size={10} />
+                  <span>{exp.period}</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <MapPin size={10} />
+                  <span>{exp.location}</span>
+                </div>
+              </div>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );
