@@ -1,129 +1,131 @@
 import React from 'react';
-import { Cpu, GitCompare, Globe, Terminal, Workflow } from 'lucide-react';
+import { Cpu, GitCompare, Globe, Terminal, ArrowRight } from 'lucide-react';
 
 export default function TechStack() {
-  const tools = [
+  const steps = [
     {
+      index: '01',
       name: 'Google Antigravity',
-      role: 'Agent Orchestration',
-      description: 'Design and execute multi-agent operations. Harnessing autonomous cognitive units to coordinate codebase analysis, system architecture design, and complex debugging cycles.',
-      metrics: 'Agent Coherence: 99.8%',
-      icon: <Cpu className="text-indigo-400" size={28} />,
-      badge: 'Cognitive Engine'
+      role: 'AGENT ORCHESTRATION',
+      icon: <Cpu className="text-indigo-400" size={20} />,
+      metrics: [
+        'MODEL: AGY.OS v4.1',
+        'VERIFIED COHERENCE: 99.8%',
+        'TICK LATENCY: 42MS'
+      ],
+      description: 'Coordinates workspace audits, structural redesign logic, and autonomous codebase edits in sandboxed containers.'
     },
     {
+      index: '02',
       name: 'GitHub Desktop',
-      role: 'Delta Auditing',
-      description: 'Streamlining version-controlled commits with clear, atomic visual diff structures. Providing safe rollbacks and clean team sync operations for distributed agent modules.',
-      metrics: 'Zero Git Conflicts',
-      icon: <GitCompare className="text-purple-400" size={28} />,
-      badge: 'Integrity Auditing'
+      role: 'DELTA INTEGRITY',
+      icon: <GitCompare className="text-purple-400" size={20} />,
+      metrics: [
+        'BRANCH: MAIN // HEAD',
+        'DELTA SCAN: CLEAN',
+        'AUDITOR: SYSTEM.ACTIVE'
+      ],
+      description: 'Reviews code diffs line-by-line, runs code lint analysis, and manages version history with structured commits.'
     },
     {
-      name: 'Vercel & Netlify',
-      role: 'Continuous Deployment',
-      description: 'Automating build pipelines to push instant previews, global edge routing, and optimized static rendering directly from workspace commits to public URLs.',
-      metrics: 'Time to Live: <30s',
-      icon: <Globe className="text-pink-400" size={28} />,
-      badge: 'Edge Hosting'
+      index: '03',
+      name: 'Vercel / Netlify',
+      role: 'CD EDGE ROUTING',
+      icon: <Globe className="text-pink-400" size={20} />,
+      metrics: [
+        'EDGE NET: GLOBAL',
+        'TIME_TO_LIVE: <30s',
+        'BUILD STATE: SUCCESS'
+      ],
+      description: 'Deploys static build outputs, configures CDN networks, and exposes preview URL pipelines directly on push.'
     }
   ];
 
   return (
-    <section id="stack" className="py-32 px-6 bg-[#050507] relative overflow-hidden">
-      {/* Decorative gradient overlay */}
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-purple-500/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold uppercase tracking-wider mb-4">
-            <Workflow size={12} className="animate-spin" />
-            <span>Workflow Engine</span>
+    <section id="stack" className="bg-black relative border-b border-white/5 scroll-mt-16">
+      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 border-x border-white/5">
+        
+        {/* Title Side Pane */}
+        <div className="lg:col-span-3 p-8 sm:p-12 border-b lg:border-b-0 lg:border-r border-white/5">
+          <div className="sticky top-24 space-y-4">
+            <span className="text-[10px] font-mono tracking-[0.25em] text-indigo-400 uppercase">
+              Pipeline Integration
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight font-sans">
+              AI Stack
+            </h2>
+            <p className="text-gray-400 text-xs leading-relaxed font-sans">
+              Flow chart of automated agent orchestration, auditing, and continuous edge compilation.
+            </p>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
-            The AI-Augmented Stack
-          </h2>
-          <p className="text-gray-400 mt-4 max-w-2xl mx-auto text-base">
-            Moving beyond basic languages. Presenting the orchestrators and platforms powering 5x velocity engineering.
-          </p>
         </div>
 
-        {/* Tools Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {tools.map((tool) => (
-            <div 
-              key={tool.name}
-              className="glass-card rounded-2xl p-8 flex flex-col justify-between group hover:border-indigo-500/30 transition-all duration-300 relative overflow-hidden"
-            >
-              {/* Subtle background glow on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/0 via-indigo-500/0 to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+        {/* Pipeline Nodes Flow */}
+        <div className="lg:col-span-9 p-8 sm:p-12 space-y-8 flex flex-col justify-center">
+          
+          <div className="flex items-center gap-2.5 font-mono text-[10px] tracking-wider text-gray-500 pb-4 border-b border-white/5">
+            <Terminal size={14} className="text-indigo-400" />
+            <span>PIPELINE_ORCHESTRATION // WORKFLOW STAGES</span>
+          </div>
 
-              <div>
-                {/* Icon & Badge */}
-                <div className="flex items-center justify-between mb-8">
-                  <div className="p-4 bg-white/5 border border-white/10 rounded-2xl group-hover:border-indigo-500/30 transition-all">
-                    {tool.icon}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+            {steps.map((step, idx) => (
+              <div 
+                key={step.index} 
+                className="relative bg-[#050508]/60 border border-white/5 p-6 flex flex-col justify-between hover:border-indigo-500/20 transition-all duration-300 group rounded-md"
+              >
+                {/* Connector arrow for desktop (skip for last item) */}
+                {idx < 2 && (
+                  <div className="hidden lg:flex absolute top-1/2 -right-6 -translate-y-1/2 z-20 items-center justify-center w-4 h-8 text-indigo-500/50">
+                    <ArrowRight size={16} />
                   </div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400 px-2.5 py-1 rounded-md bg-[#1F1F29]/80 border border-[#1f1f29]">
-                    {tool.badge}
-                  </span>
+                )}
+
+                <div>
+                  {/* Top Bar */}
+                  <div className="flex items-center justify-between font-mono text-[9px] text-gray-600 mb-6">
+                    <span>[ STAGE {step.index} ]</span>
+                    <span className="text-indigo-400/80 font-bold">{step.role}</span>
+                  </div>
+
+                  {/* Header Title */}
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="p-2.5 bg-white/5 border border-white/5 text-white rounded-md">
+                      {step.icon}
+                    </div>
+                    <h3 className="text-base font-bold text-white font-sans group-hover:text-indigo-400 transition-colors">
+                      {step.name}
+                    </h3>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-gray-400 text-[11px] leading-relaxed mb-6 font-sans">
+                    {step.description}
+                  </p>
                 </div>
 
-                {/* Role / Meta */}
-                <span className="text-xs font-semibold uppercase tracking-wider text-indigo-400">
-                  {tool.role}
-                </span>
+                {/* Telemetry Block */}
+                <div className="pt-4 border-t border-white/[0.04] font-mono text-[9px] text-gray-500 space-y-1.5 bg-black/40 p-3 rounded border border-white/[0.02]">
+                  {step.metrics.map((metric, mIdx) => (
+                    <div key={mIdx} className="flex justify-between">
+                      <span className="text-gray-600">{metric.split(':')[0]}</span>
+                      <span className="text-gray-300 font-bold">{metric.split(':')[1]}</span>
+                    </div>
+                  ))}
+                </div>
 
-                {/* Name */}
-                <h3 className="text-2xl font-bold text-white mt-1 mb-4 tracking-tight">
-                  {tool.name}
-                </h3>
-
-                {/* Description */}
-                <p className="text-gray-400 text-sm leading-relaxed mb-8">
-                  {tool.description}
-                </p>
               </div>
-
-              {/* Footer Metric bar */}
-              <div className="pt-6 border-t border-white/5 flex items-center justify-between">
-                <span className="text-xs text-gray-500 font-medium uppercase tracking-wider">
-                  Engine Status
-                </span>
-                <span className="text-xs font-semibold text-emerald-400 flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  {tool.metrics}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
-        
-        {/* Core Architecture Concept Card */}
-        <div className="mt-16 glass-card rounded-2xl p-8 md:p-12 relative overflow-hidden bg-gradient-to-r from-[#0B0B0F] to-[#050507]">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-600/5 rounded-full blur-3xl pointer-events-none" />
-          
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
-            <div className="max-w-2xl">
-              <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
-                Autonomous Delivery Philosophy
-              </h3>
-              <p className="text-gray-400 text-sm leading-relaxed">
-                Rather than writing manual, repetitive code templates, I orchestrate specialized agents running in virtual sandboxes. They execute, verify, compile, and audit software components autonomously, which ensures pristine, bug-free production deploys.
-              </p>
-            </div>
-            <div className="flex items-center gap-3 shrink-0">
-              <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
-                <Terminal className="text-indigo-400" size={20} />
-              </div>
-              <div>
-                <div className="text-sm font-bold text-white">Continuous Deployment</div>
-                <div className="text-xs text-gray-500">Auto-verification active</div>
-              </div>
-            </div>
+            ))}
           </div>
+
+          {/* Delivery Note */}
+          <div className="border border-white/5 rounded-md p-6 bg-white/[0.01] font-mono text-[10px] text-gray-500 leading-relaxed">
+            <span className="text-indigo-400 font-bold block mb-1">AUTOMATED WORKSPACE DELIVERY</span>
+            This entire setup is built by orchestrating Google Antigravity agents running within a secure Mac/zsh terminal sandbox. Standardized file writes, post-install dependency trees, and linter validation runs are fully automated.
+          </div>
+
         </div>
+
       </div>
     </section>
   );
