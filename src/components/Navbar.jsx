@@ -1,6 +1,49 @@
 import React, { useState, useEffect } from 'react';
 import { Github, Linkedin, Terminal } from 'lucide-react';
 
+function ScrambleText({ text }) {
+  const [displayText, setDisplayText] = useState(text);
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_@#$';
+
+  const handleMouseEnter = () => {
+    let iteration = 0;
+    const interval = setInterval(() => {
+      setDisplayText(
+        text
+          .split('')
+          .map((char, index) => {
+            if (index < iteration) {
+              return text[index];
+            }
+            if (char === ' ') return ' ';
+            return chars[Math.floor(Math.random() * chars.length)];
+          })
+          .join('')
+      );
+
+      if (iteration >= text.length) {
+        clearInterval(interval);
+      }
+
+      iteration += 1 / 3; // speed of decryption
+    }, 25);
+  };
+
+  const handleMouseLeave = () => {
+    setDisplayText(text);
+  };
+
+  return (
+    <span 
+      onMouseEnter={handleMouseEnter} 
+      onMouseLeave={handleMouseLeave}
+      className="inline-block"
+    >
+      {displayText}
+    </span>
+  );
+}
+
 export default function Navbar() {
   const [time, setTime] = useState('');
 
@@ -28,23 +71,23 @@ export default function Navbar() {
         {/* Brand */}
         <div className="flex items-center gap-4">
           <a href="#" className="font-bold text-white tracking-widest flex items-center gap-2">
-            <Terminal size={14} className="text-indigo-400" />
-            <span>SOURAV_GOSWAMI.IO</span>
+            <Terminal size={14} className="text-indigo-400 animate-pulse" />
+            <ScrambleText text="SOURAV_GOSWAMI.IO" />
           </a>
           <span className="hidden sm:inline-block text-[9px] text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-sm">
             DEV: ONLINE
           </span>
         </div>
 
-        {/* Navigation links */}
+        {/* Navigation links with shuffle hover effect */}
         <nav className="hidden lg:flex items-center gap-6">
           {links.map((link) => (
             <a 
               key={link.label}
               href={link.href} 
-              className="text-gray-300 hover:text-white hover:underline decoration-indigo-500 decoration-2 underline-offset-4 transition-all"
+              className="text-gray-300 hover:text-indigo-400 hover:underline decoration-indigo-500 decoration-2 underline-offset-4 transition-all"
             >
-              {link.label}
+              <ScrambleText text={link.label} />
             </a>
           ))}
         </nav>
@@ -56,7 +99,7 @@ export default function Navbar() {
               href="https://github.com/Sourav040505" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-white transition-colors"
+              className="text-gray-300 hover:text-indigo-400 transition-colors"
               title="GitHub"
             >
               <Github size={14} />
@@ -65,7 +108,7 @@ export default function Navbar() {
               href="https://linkedin.com/in/souravgoswami2005" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-white transition-colors"
+              className="text-gray-300 hover:text-indigo-400 transition-colors"
               title="LinkedIn"
             >
               <Linkedin size={14} />
