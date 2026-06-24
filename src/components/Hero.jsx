@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Sparkles, FileDown } from 'lucide-react';
+import { ArrowRight, Sparkles, FileDown, Linkedin } from 'lucide-react';
 
 export default function Hero() {
   return (
@@ -27,13 +27,13 @@ export default function Hero() {
           with AI-Augmented Engineering.
         </h1>
 
-        {/* High-End Subtitle */}
+        {/* High-End Subtitle incorporating Resume Info */}
         <p className="text-lg sm:text-xl text-gray-400 max-w-3xl leading-relaxed mb-12 tracking-wide">
-          B.Tech Computer Science student specializing in Educational Technology. Operating as an engineering manager orchestrating autonomous AI agents to build scalable web software.
+          B.Tech Computer Science Engineering student at <strong>VIT Bhopal</strong> (GPA: 8.5) specializing in Educational Technology. Operating as an engineering manager orchestrating autonomous AI agents to build scalable web software.
         </p>
 
         {/* CTAs */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 justify-center w-full sm:w-auto">
+        <div className="flex flex-col sm:flex-row items-center gap-4 justify-center w-full sm:w-auto mb-16">
           <a
             href="#projects"
             className="group flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-indigo-600/25 hover:shadow-indigo-500/35 hover:-translate-y-0.5"
@@ -43,28 +43,38 @@ export default function Hero() {
           </a>
 
           <a
+            href="https://linkedin.com/in/souravgoswami2005"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 text-white font-semibold rounded-xl transition-all duration-300 hover:-translate-y-0.5"
+          >
+            <Linkedin size={18} className="text-indigo-400" />
+            <span>Connect on LinkedIn</span>
+          </a>
+
+          <a
             href="/resume.pdf"
             download
             className="flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 text-white font-semibold rounded-xl transition-all duration-300 hover:-translate-y-0.5"
           >
             <FileDown size={18} />
-            <span>Download Materials</span>
+            <span>Resume PDF</span>
           </a>
         </div>
 
         {/* Performance metrics banner */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-16 pt-20 border-t border-white/5 w-full mt-24">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-16 pt-20 border-t border-white/5 w-full mt-12">
           <div className="text-center md:text-left">
-            <div className="text-3xl md:text-4xl font-extrabold text-white">5x</div>
-            <div className="text-xs uppercase tracking-wider text-gray-500 mt-1">Velocity Increase</div>
+            <div className="text-3xl md:text-4xl font-extrabold text-white">8.5 GPA</div>
+            <div className="text-xs uppercase tracking-wider text-gray-500 mt-1">Academic Standard</div>
           </div>
           <div className="text-center md:text-left">
             <div className="text-3xl md:text-4xl font-extrabold text-white">100%</div>
-            <div className="text-xs uppercase tracking-wider text-gray-500 mt-1">Agent Autonomous Stack</div>
+            <div className="text-xs uppercase tracking-wider text-gray-500 mt-1">Autonomous Stack</div>
           </div>
           <div className="col-span-2 md:col-span-1 text-center md:text-left">
-            <div className="text-3xl md:text-4xl font-extrabold text-white">Zero</div>
-            <div className="text-xs uppercase tracking-wider text-gray-500 mt-1">Legacy Bottlenecks</div>
+            <div className="text-3xl md:text-4xl font-extrabold text-white">VIT Bhopal</div>
+            <div className="text-xs uppercase tracking-wider text-gray-500 mt-1">B.Tech CS Undergrad</div>
           </div>
         </div>
       </div>
