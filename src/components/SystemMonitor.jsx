@@ -1,115 +1,197 @@
-import React from 'react';
-import { Radio, Disc, Volume2, Terminal, Activity } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Terminal, Music, ExternalLink, Disc } from 'lucide-react';
 
+/**
+ * SystemMonitor — two panels:
+ *   Left: "Currently Working On" — active project card
+ *   Right: Spotify-style "Now Playing" widget with animated audio bars
+ */
 export default function SystemMonitor() {
+  const [time, setTime] = useState('');
+
+  useEffect(() => {
+    const tick = () => {
+      const now = new Date();
+      setTime(
+        now.toLocaleTimeString('en-IN', {
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: false,
+          timeZone: 'Asia/Kolkata',
+        }) + ' IST'
+      );
+    };
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, []);
+
   return (
-    <section id="monitor" className="bg-black relative border-b border-white/10 scroll-mt-16">
-      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 border-x border-white/10">
-        
-        {/* Title Side Pane */}
-        <div className="lg:col-span-3 p-8 sm:p-12 border-b lg:border-b-0 lg:border-r border-white/10">
-          <div className="sticky top-24 space-y-4">
-            <span className="text-[10px] font-mono tracking-[0.25em] text-indigo-400 uppercase">
-              Telemetry
-            </span>
-            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight font-sans">
-              Monitor
-            </h2>
-            <p className="text-gray-200 text-xs leading-relaxed font-sans">
-              Real-time feed of current software projects in development and auditory focus tracks.
+    <section
+      id="monitor"
+      className="bg-[#0a0a14] relative border-b border-white/5 scroll-mt-16 py-24 px-6"
+    >
+      <div className="max-w-7xl mx-auto">
+
+        {/* Header */}
+        <div className="mb-14">
+          <span
+            className="block mb-2 text-[10px] tracking-[0.3em] uppercase text-emerald-400"
+            style={{ fontFamily: "'JetBrains Mono', monospace" }}
+          >
+            Live Feed
+          </span>
+          <h2 className="text-4xl sm:text-5xl font-black text-white tracking-tight">
+            Now
+          </h2>
+          <p className="mt-3 text-gray-400 text-sm max-w-lg leading-relaxed">
+            What I'm actively building and listening to.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+
+          {/* ── Currently Working On ────────────────────────────────── */}
+          <div
+            className="p-7 border border-white/5 hover:border-indigo-500/20 transition-all duration-300"
+            style={{ background: '#0f0f1a' }}
+          >
+            <div className="flex items-center gap-2 font-mono text-[10px] tracking-widest text-indigo-400 uppercase mb-6">
+              <Terminal size={12} />
+              Currently Working On
+              <span className="ml-auto text-gray-600 text-[9px]">{time}</span>
+            </div>
+
+            {/* Active project */}
+            <div className="space-y-4">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse" />
+                <h3 className="text-base font-bold text-white tracking-tight">
+                  FOSSEE Workshop Refactor
+                </h3>
+              </div>
+
+              <p className="text-sm text-gray-400 leading-relaxed">
+                Optimising Django-based workshop controllers at IIT Bombay — refactoring routing logic to reduce database query times and building a fully responsive mobile UI.
+              </p>
+
+              {/* Specs grid */}
+              <div
+                className="grid grid-cols-2 gap-3 p-4 border border-white/5 font-mono text-[10px] mt-2"
+                style={{ background: 'rgba(255,255,255,0.015)' }}
+              >
+                <div>
+                  <span className="text-gray-600 block tracking-wider uppercase mb-0.5">Stack</span>
+                  <span className="text-white font-bold">Django · Python · CSS</span>
+                </div>
+                <div>
+                  <span className="text-gray-600 block tracking-wider uppercase mb-0.5">Status</span>
+                  <span className="text-indigo-400 font-bold">Active · Q3 2026</span>
+                </div>
+                <div>
+                  <span className="text-gray-600 block tracking-wider uppercase mb-0.5">Scope</span>
+                  <span className="text-white font-bold">Performance + UI</span>
+                </div>
+                <div>
+                  <span className="text-gray-600 block tracking-wider uppercase mb-0.5">Target</span>
+                  <span className="text-emerald-400 font-bold">40% faster queries</span>
+                </div>
+              </div>
+
+              <a
+                href="https://github.com/Sourav040505"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-[11px] font-mono text-gray-500 hover:text-indigo-400 transition-colors"
+              >
+                View on GitHub
+                <ExternalLink size={10} />
+              </a>
+            </div>
+          </div>
+
+          {/* ── Spotify Now Playing ──────────────────────────────────── */}
+          <div
+            className="p-7 border border-white/5 hover:border-emerald-500/20 transition-all duration-300 flex flex-col"
+            style={{ background: '#0f0f1a' }}
+          >
+            <div className="flex items-center gap-2 font-mono text-[10px] tracking-widest text-emerald-400 uppercase mb-6">
+              <Music size={12} className="animate-pulse" />
+              Spotify — Now Playing
+            </div>
+
+            {/* Player card */}
+            <div
+              className="flex items-center gap-5 p-5 border border-emerald-500/10 relative overflow-hidden flex-grow"
+              style={{ background: 'rgba(16,185,129,0.04)' }}
+            >
+              {/* Album art / disc */}
+              <div className="relative w-20 h-20 shrink-0 flex items-center justify-center border border-white/10 rounded-full overflow-hidden"
+                style={{ background: '#121218' }}>
+                <Disc
+                  size={36}
+                  className="text-emerald-400"
+                  style={{ animation: 'spin 6s linear infinite' }}
+                />
+                <div
+                  className="absolute inset-0 rounded-full"
+                  style={{
+                    background: 'radial-gradient(circle at 40% 40%, rgba(16,185,129,0.15), transparent 70%)',
+                  }}
+                />
+              </div>
+
+              {/* Track info */}
+              <div className="overflow-hidden flex-grow">
+                <span className="text-[9px] font-mono text-emerald-400 font-bold tracking-widest uppercase block mb-1">
+                  ♫ STREAMING
+                </span>
+                <h4 className="text-lg font-bold text-white truncate leading-tight">
+                  Resonance
+                </h4>
+                <p className="text-sm text-gray-400 truncate mt-0.5">
+                  HOME — Synthwave Essentials
+                </p>
+
+                {/* Progress bar */}
+                <div className="mt-3 h-0.5 w-full bg-white/5 relative overflow-hidden">
+                  <div
+                    className="absolute inset-y-0 left-0 bg-emerald-400"
+                    style={{ width: '52%', transition: 'none' }}
+                  />
+                </div>
+                <div className="flex justify-between font-mono text-[9px] text-gray-600 mt-1">
+                  <span>1:23</span>
+                  <span>2:40</span>
+                </div>
+              </div>
+
+              {/* Audio bars — right side */}
+              <div className="flex items-end gap-0.5 h-10 shrink-0">
+                <span className="w-1 rounded-sm bg-emerald-400 audio-bar-1" style={{ minHeight: 4 }} />
+                <span className="w-1 rounded-sm bg-emerald-400 audio-bar-2" style={{ minHeight: 4 }} />
+                <span className="w-1 rounded-sm bg-emerald-400 audio-bar-3" style={{ minHeight: 4 }} />
+                <span className="w-1 rounded-sm bg-emerald-400 audio-bar-4" style={{ minHeight: 4 }} />
+              </div>
+            </div>
+
+            {/* Footer note */}
+            <p className="mt-4 text-[10px] font-mono text-gray-600 leading-relaxed">
+              Live Spotify integration coming soon — connect via{' '}
+              <a
+                href="https://spotify.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-emerald-400 hover:underline"
+              >
+                Spotify API
+              </a>
+              .
             </p>
           </div>
-        </div>
-
-        {/* System Monitor Panels */}
-        <div className="lg:col-span-9 grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-white/10">
-          
-          {/* Currently Working On */}
-          <div className="md:col-span-7 p-8 sm:p-12 space-y-8">
-            <div className="flex items-center gap-2.5 font-mono text-[10px] tracking-wider text-gray-400 pb-4 border-b border-white/10">
-              <Terminal size={14} className="text-indigo-400" />
-              <span>ACTIVE_REPOS // FOCUS_PROJECT</span>
-            </div>
-
-            <div className="space-y-6">
-              <div className="space-y-3">
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse" />
-                  <h4 className="text-base font-bold text-white font-mono uppercase tracking-wider">
-                    FOSSEE_WANTED_REFACTOR
-                  </h4>
-                </div>
-                <p className="text-gray-300 text-xs sm:text-sm leading-relaxed font-sans">
-                  Optimizing Django-based Django workshop controllers at IIT Bombay. Refactoring routing trees to speed up database query responses by up to 40% and designing high-fidelity mobile-responsive UI interfaces.
-                </p>
-              </div>
-
-              {/* Status Spec */}
-              <div className="grid grid-cols-2 gap-4 pt-4 border-t border-white/[0.04] font-mono text-[10px] text-gray-400">
-                <div>
-                  <span className="text-gray-600 block uppercase tracking-wider">BRANCH_FLOW</span>
-                  <span className="text-white font-bold block mt-0.5">DEV_OPTIMIZATION</span>
-                </div>
-                <div>
-                  <span className="text-gray-600 block uppercase tracking-wider">TARGET_DEPL</span>
-                  <span className="text-indigo-400 font-bold block mt-0.5">STAGING // Q3 2026</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Spotify Now Playing Widget */}
-          <div className="md:col-span-5 p-8 sm:p-12 space-y-8 flex flex-col justify-between">
-            <div>
-              <div className="flex items-center gap-2.5 font-mono text-[10px] tracking-wider text-gray-400 pb-4 border-b border-white/10">
-                <Radio size={14} className="text-emerald-400 animate-pulse" />
-                <span>SPOTIFY // NOW_PLAYING</span>
-              </div>
-
-              {/* Player Body */}
-              <div className="mt-8 flex items-center gap-4 bg-white/[0.02] border border-white/10 p-4 rounded-md relative overflow-hidden group hover:border-emerald-500/20 transition-all">
-                <div className="relative w-16 h-16 shrink-0 bg-[#121216] border border-white/10 rounded flex items-center justify-center overflow-hidden">
-                  <Disc size={28} className="text-emerald-400 animate-[spin_6s_linear_infinite]" />
-                  <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/10 to-transparent pointer-events-none" />
-                </div>
-                
-                <div className="overflow-hidden">
-                  <span className="text-[9px] font-mono text-emerald-400 font-bold tracking-widest uppercase block mb-1">
-                    STREAMING
-                  </span>
-                  <h4 className="text-sm font-bold text-white tracking-tight truncate">
-                    Resonance
-                  </h4>
-                  <p className="text-xs text-gray-400 truncate mt-0.5">
-                    HOME — Synthwave Essentials
-                  </p>
-                </div>
-
-                {/* Small audio bars animation */}
-                <div className="absolute right-4 bottom-4 flex items-end gap-0.5 h-6">
-                  <span className="w-1 bg-emerald-400/80 animate-[bounce_1.2s_infinite_ease-in-out_0.2s] h-4" />
-                  <span className="w-1 bg-emerald-400/80 animate-[bounce_1.0s_infinite_ease-in-out_0.4s] h-5" />
-                  <span className="w-1 bg-emerald-400/80 animate-[bounce_1.4s_infinite_ease-in-out_0.1s] h-3" />
-                  <span className="w-1 bg-emerald-400/80 animate-[bounce_1.1s_infinite_ease-in-out_0.3s] h-5" />
-                </div>
-              </div>
-            </div>
-
-            {/* Listening Specs */}
-            <div className="pt-6 border-t border-white/[0.04] flex items-center justify-between font-mono text-[9px] text-gray-500">
-              <span className="flex items-center gap-1.5">
-                <Volume2 size={12} className="text-emerald-400" />
-                <span>BITRATE: 320 KBPS</span>
-              </span>
-              <span className="text-emerald-400 font-bold flex items-center gap-1.5">
-                <Activity size={10} className="animate-pulse" />
-                <span>SYNCHRONIZED</span>
-              </span>
-            </div>
-          </div>
 
         </div>
-
       </div>
     </section>
   );

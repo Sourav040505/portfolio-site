@@ -1,97 +1,132 @@
 import React, { useState } from 'react';
-import { Copy, Check, Terminal, Mail } from 'lucide-react';
+import { Copy, Check, Mail, Github, Linkedin, ArrowRight } from 'lucide-react';
+
+const email = 'souravgoswami2005@gmail.com';
 
 export default function Contact() {
-  const [copiedEmail, setCopiedEmail] = useState(false);
-  const email = 'souravgoswami2005@gmail.com';
+  const [copied, setCopied] = useState(false);
 
-  const copyToClipboard = (text) => {
-    navigator.clipboard.writeText(text);
-    setCopiedEmail(true);
-    setTimeout(() => setCopiedEmail(false), 2000);
+  const copyEmail = () => {
+    navigator.clipboard.writeText(email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
-    <section id="contact" className="bg-black relative border-b border-white/5 scroll-mt-16">
-      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 border-x border-white/5">
-        
-        {/* Title Side Pane */}
-        <div className="lg:col-span-3 p-8 sm:p-12 border-b lg:border-b-0 lg:border-r border-white/5">
-          <div className="sticky top-24 space-y-4">
-            <span className="text-[10px] font-mono tracking-[0.25em] text-indigo-400 uppercase">
-              Connectivity
-            </span>
-            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight font-sans">
-              Contact
-            </h2>
-            <p className="text-gray-400 text-xs leading-relaxed font-sans">
-              Request pipeline authorization. Copy contact variables directly into your registry clipboard.
-            </p>
-          </div>
+    <section id="contact" className="bg-[#0a0a14] relative scroll-mt-16 py-24 px-6">
+      <div className="max-w-7xl mx-auto">
+
+        {/* Header */}
+        <div className="mb-14">
+          <span
+            className="block mb-2 text-[10px] tracking-[0.3em] uppercase text-indigo-400"
+            style={{ fontFamily: "'JetBrains Mono', monospace" }}
+          >
+            Get in Touch
+          </span>
+          <h2 className="text-4xl sm:text-5xl font-black text-white tracking-tight">
+            Contact
+          </h2>
         </div>
 
-        {/* Directory Contact Details */}
-        <div className="lg:col-span-9 p-8 sm:p-12 space-y-8 flex flex-col justify-center">
-          <div className="flex items-center gap-2.5 font-mono text-[10px] tracking-wider text-gray-500 pb-4 border-b border-white/5">
-            <Terminal size={14} className="text-indigo-400" />
-            <span>COMMUNICATION_CHANNELS // STAGE_ONBOARDING</span>
-          </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-            
-            {/* Brief Pitch */}
-            <div className="md:col-span-6 space-y-4">
-              <h3 className="text-base font-bold text-white tracking-tight font-sans">
-                Onboarding Pitch
-              </h3>
-              <p className="text-gray-400 text-xs sm:text-sm leading-relaxed font-sans">
-                Currently available for software engineering roles, team integrations, and autonomous pipeline setups. Clean delivery and standard versioning flows guaranteed.
-              </p>
-              <div className="flex items-center gap-2 font-mono text-[10px] text-emerald-400">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-                <span>AVAILABILITY_STATE // READY</span>
-              </div>
+          {/* Left: availability pitch */}
+          <div className="space-y-6">
+            <div className="flex items-center gap-2 text-emerald-400 font-mono text-xs tracking-widest">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+              Available for opportunities
             </div>
 
-            {/* Monospace Copy Box Panel */}
-            <div className="md:col-span-6 space-y-4 font-mono text-[11px] tracking-wider">
-              
-              {/* Email Row */}
-              <div className="p-6 bg-[#050508]/60 border border-white/5 flex items-center justify-between rounded-md">
-                <div className="flex items-center gap-3">
-                  <div className="p-2.5 bg-indigo-500/10 border border-indigo-500/20 rounded-md text-indigo-400">
-                    <Mail size={16} />
-                  </div>
-                  <div>
-                    <div className="text-[9px] text-gray-600 uppercase">SYS_VAR // EMAIL</div>
-                    <div className="text-white font-bold mt-1 select-all">{email}</div>
-                  </div>
-                </div>
-                <button
-                  onClick={() => copyToClipboard(email)}
-                  className="p-2.5 border border-white/5 hover:border-white/20 text-gray-400 hover:text-white transition-all bg-black"
-                  title="Copy email address"
+            <h3 className="text-2xl sm:text-3xl font-bold text-white leading-snug">
+              Open to software engineering roles,<br className="hidden sm:block" />
+              freelance projects, and collaborations.
+            </h3>
+
+            <p className="text-gray-400 text-sm leading-relaxed max-w-md">
+              Whether you're a recruiter, a startup founder, or a developer looking to collaborate — feel free to reach out. I respond to all emails.
+            </p>
+
+            {/* Social links */}
+            <div className="flex items-center gap-4 pt-2">
+              <a
+                href="https://github.com/Sourav040505"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-xs font-mono text-gray-400 hover:text-white transition-colors tracking-wider"
+              >
+                <Github size={14} />
+                GitHub
+                <ArrowRight size={10} />
+              </a>
+              <a
+                href="https://linkedin.com/in/souravgoswami2005"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-xs font-mono text-gray-400 hover:text-white transition-colors tracking-wider"
+              >
+                <Linkedin size={14} />
+                LinkedIn
+                <ArrowRight size={10} />
+              </a>
+            </div>
+          </div>
+
+          {/* Right: email copy card */}
+          <div className="space-y-4">
+            {/* Email row */}
+            <div
+              className="flex items-center justify-between p-5 border border-white/5 hover:border-indigo-500/20 transition-all duration-200"
+              style={{ background: '#0f0f1a' }}
+            >
+              <div className="flex items-center gap-4">
+                <div
+                  className="p-2.5 border"
+                  style={{
+                    background: 'rgba(99,102,241,0.08)',
+                    borderColor: 'rgba(99,102,241,0.2)',
+                    color: '#818cf8',
+                  }}
                 >
-                  {copiedEmail ? (
-                    <span className="text-[9px] text-emerald-400 font-bold flex items-center gap-1">
-                      <Check size={10} /> COPIED
-                    </span>
-                  ) : (
-                    <Copy size={12} />
-                  )}
-                </button>
+                  <Mail size={16} />
+                </div>
+                <div>
+                  <div className="text-[9px] font-mono text-gray-600 tracking-wider uppercase mb-0.5">
+                    Email
+                  </div>
+                  <div className="text-sm font-bold text-white select-all">{email}</div>
+                </div>
               </div>
 
+              <button
+                onClick={copyEmail}
+                title="Copy email"
+                className="p-2.5 border border-white/5 hover:border-indigo-500/30 text-gray-500 hover:text-white transition-all"
+              >
+                {copied ? (
+                  <span className="flex items-center gap-1 text-[9px] font-mono text-emerald-400 font-bold whitespace-nowrap">
+                    <Check size={10} /> COPIED
+                  </span>
+                ) : (
+                  <Copy size={13} />
+                )}
+              </button>
             </div>
 
-          </div>
-
-          {/* Mailto trigger shortcut */}
-          <div className="font-mono text-[10px] text-gray-600 pt-4 border-t border-white/[0.04]">
-            PING PROTOCOL: Send an instant email payload to{' '}
-            <a href={`mailto:${email}`} className="text-indigo-400 font-bold hover:underline">
-              souravgoswami2005@gmail.com
+            {/* Direct mailto button */}
+            <a
+              href={`mailto:${email}`}
+              className="flex items-center justify-center gap-2 w-full py-4 font-mono text-xs tracking-widest uppercase transition-all duration-200 hover:opacity-90"
+              style={{ background: '#6366f1', color: '#ffffff', fontWeight: 700 }}
+            >
+              Send an Email
+              <ArrowRight size={13} />
             </a>
+
+            {/* Response note */}
+            <p className="text-[10px] font-mono text-gray-600 text-center tracking-wider">
+              Typically respond within 24 hours.
+            </p>
           </div>
 
         </div>

@@ -1,74 +1,94 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
+/**
+ * Futuristic crosshair cursor.
+ * - On desktop pointer devices, hides the native cursor.
+ * - Outer ring + centre dot + 4 tick marks forming a targeting reticle.
+ * - Scales up and glows on interactive elements.
+ */
 export default function CustomCursor() {
-  const [position, setPosition] = useState({ x: -100, y: -100 });
-  const [isHovered, setIsHovered] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  const [pos, setPos] = useState({ x: -200, y: -200 });
+  const [hovered, setHovered] = useState(false);
+  const [clicking, setClicking] = useState(false);
+  const [visible, setVisible] = useState(false);
 
-  useEffect(() => {
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    if (isTouchDevice) return;
+  const handleMove = useCallback((e) => {
+    setPos({ x: e.clientX, y: e.clientY });
+    if (!visible) setVisible(true);
+  }, [visible]);
 
-    setIsVisible(true);
-
-    const handleMouseMove = (e) => {
-      setPosition({ x: e.clientX, y: e.clientY });
-    };
-
-    const handleMouseOver = (e) => {
-      const target = e.target;
-      if (
-        target.tagName === 'A' || 
-        target.tagName === 'BUTTON' || 
-        target.closest('a') || 
-        target.closest('button') ||
-        target.getAttribute('role') === 'button'
-      ) {
-        setIsHovered(true);
-      } else {
-        setIsHovered(false);
-      }
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('mouseover', handleMouseOver);
-
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseover', handleMouseOver);
-    };
+  const handleOver = useCallback((e) => {
+    const t = e.target;
+    setHovered(
+      !!(t.tagName === 'A' || t.tagName === 'BUTTON' ||
+        t.closest('a') || t.closest('button') ||
+        t.getAttribute('role') === 'button')
+    );
   }, []);
 
-  if (!isVisible) return null;
+  useEffect(() => {
+    const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    if (isTouch) return;
+
+    window.addEventListener('mousemove', handleMove, { passive: true });
+    window.addEventListener('mouseover', handleOver, { passive: true });
+    window.addEventListener('mousedown', () => setClicking(true));
+    window.addEventListener('mouseup', () => setClicking(false));
+    window.addEventListener('mouseleave', () => setVisible(false));
+    window.addEventListener('mouseenter', () => setVisible(true));
+
+    return () => {
+      window.removeEventListener('mousemove', handleMove);
+      window.removeEventListener('mouseover', handleOver);
+    };
+  }, [handleMove, handleOver]);
+
+  if (!visible) return null;
+
+  const size = hovered ? 36 : clicking ? 16 : 24;
+  const color = hovered ? '#818cf8' : 'rgba(255,255,255,0.75)';
+  const dotColor = hovered ? '#6366f1' : '#ffffff';
 
   return (
     <div
-      className="fixed top-0 left-0 pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 flex items-center justify-center"
+      className="fixed pointer-events-none z-[9999]"
       style={{
-        left: `${position.x}px`,
-        top: `${position.y}px`,
+        left: pos.x,
+        top: pos.y,
+        transform: 'translate(-50%, -50%)',
+        width: size,
+        height: size,
+        transition: 'width 0.12s, height 0.12s',
       }}
     >
-      {/* Outer target ring (extremely responsive, zero interpolation lag) */}
-      <div 
-        className="rounded-full border transition-all duration-150 ease-out flex items-center justify-center"
-        style={{
-          width: isHovered ? '28px' : '16px',
-          height: isHovered ? '28px' : '16px',
-          borderColor: isHovered ? 'rgba(99, 102, 241, 1)' : 'rgba(255, 255, 255, 0.4)',
-          backgroundColor: isHovered ? 'rgba(99, 102, 241, 0.1)' : 'transparent',
-          boxShadow: isHovered ? '0 0 10px rgba(99, 102, 241, 0.4)' : 'none',
-        }}
+      {/* Outer ring */}
+      <svg
+        width={size}
+        height={size}
+        viewBox="0 0 36 36"
+        style={{ position: 'absolute', inset: 0, transition: 'all 0.12s' }}
       >
-        {/* Center dot */}
-        <div 
-          className="w-1.5 h-1.5 rounded-full bg-white transition-transform"
-          style={{
-            transform: `scale(${isHovered ? 1.2 : 1})`,
-            backgroundColor: isHovered ? '#6366F1' : '#FFFFFF',
-          }}
+        {/* Corner tick marks — crosshair style */}
+        <line x1="18" y1="2" x2="18" y2="8"   stroke={color} strokeWidth="1.5" strokeLinecap="round" style={{ transition: 'stroke 0.12s' }} />
+        <line x1="18" y1="28" x2="18" y2="34" stroke={color} strokeWidth="1.5" strokeLinecap="round" style={{ transition: 'stroke 0.12s' }} />
+        <line x1="2" y1="18" x2="8"  y2="18"  stroke={color} strokeWidth="1.5" strokeLinecap="round" style={{ transition: 'stroke 0.12s' }} />
+        <line x1="28" y1="18" x2="34" y2="18" stroke={color} strokeWidth="1.5" strokeLinecap="round" style={{ transition: 'stroke 0.12s' }} />
+        {/* Circle */}
+        <circle
+          cx="18" cy="18" r="8"
+          fill="none"
+          stroke={color}
+          strokeWidth="1"
+          strokeDasharray={hovered ? '0' : '4 4'}
+          style={{ transition: 'all 0.2s' }}
         />
-      </div>
+        {/* Centre dot */}
+        <circle
+          cx="18" cy="18" r={clicking ? 4 : 2}
+          fill={dotColor}
+          style={{ transition: 'all 0.1s' }}
+        />
+      </svg>
     </div>
   );
 }
