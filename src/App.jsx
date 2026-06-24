@@ -9,15 +9,15 @@ import Contact from './components/Contact';
 
 function Footer() {
   return (
-    <footer className="py-12 border-t border-white/5 bg-black text-center text-xs text-gray-500">
-      <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <footer className="py-12 bg-black font-mono text-[10px] text-gray-600 border-t border-white/5 max-w-7xl mx-auto w-full border-x">
+      <div className="px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div>
-          © {new Date().getFullYear()} Sourav Goswami. Designed & Orchestrated Autonomously.
+          © {new Date().getFullYear()} SOURAV_GOSWAMI. ALL RIGHTS RESERVED.
         </div>
-        <div className="flex gap-6">
-          <a href="https://github.com/Sourav040505" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GitHub</a>
-          <a href="https://linkedin.com/in/souravgoswami2005" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
-          <a href="mailto:souravgoswami2005@gmail.com" className="hover:text-white transition-colors">Email</a>
+        <div className="flex gap-6 uppercase tracking-wider">
+          <a href="https://github.com/Sourav040505" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">[ GITHUB ]</a>
+          <a href="https://linkedin.com/in/souravgoswami2005" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">[ LINKEDIN ]</a>
+          <a href="mailto:souravgoswami2005@gmail.com" className="hover:text-white transition-colors">[ EMAIL ]</a>
         </div>
       </div>
     </footer>
@@ -26,14 +26,14 @@ function Footer() {
 
 function App() {
   return (
-    <div className="min-h-screen bg-background text-gray-100 flex flex-col relative">
-      {/* Background glow canvas overlay */}
-      <div className="grid-glow" />
+    <div className="min-h-screen bg-black text-gray-200 flex flex-col relative font-sans">
+      {/* Global premium noise texture */}
+      <div className="noise-overlay" />
 
-      {/* Floating Navbar */}
+      {/* Floating Header */}
       <Navbar />
 
-      {/* Main content sections */}
+      {/* Main Blueprint layout */}
       <main className="flex-grow">
         <Hero />
         <ProjectGrid />
