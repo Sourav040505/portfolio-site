@@ -4,101 +4,97 @@ import { GraduationCap, Award, CheckCircle2 } from 'lucide-react';
 export default function Credentials() {
   const education = [
     {
-      institution: 'Vellore Institute of Technology (VIT Bhopal)',
-      degree: 'B.Tech, Computer Science Engineering',
+      institution: 'VIT BHOPAL UNIVERSITY',
+      degree: 'B.TECH, COMPUTER SCIENCE ENGINEERING',
       timeline: '2024 – 2028',
       details: 'Focusing on core software engineering, data structures, algorithms, and AI/ML architectures.'
     },
     {
-      institution: 'Coding Ninjas (IIT-M Partnered)',
-      degree: 'Advanced DSA & Java Training',
-      timeline: 'Apr 2025 – Aug 2025',
-      details: 'IIT-M Training & Internship Certification focusing on complex algorithmic problem solving.'
+      institution: 'CODING NINJAS (IIT-M PARTNERED)',
+      degree: 'ADVANCED DSA & JAVA TRAINING',
+      timeline: 'APR 2025 – AUG 2025',
+      details: 'IIT-M Partnered Training & Internship Certification focusing on complex algorithmic problem solving.'
     },
     {
-      institution: 'SAI International School',
-      degree: 'High School Diploma — Science (PCMB)',
+      institution: 'SAI INTERNATIONAL SCHOOL',
+      degree: 'HIGH SCHOOL DIPLOMA — SCIENCE (PCMB)',
       timeline: '2021 – 2023',
-      details: 'Rigorous academic base focusing on Physics, Chemistry, Mathematics, and Biology.'
+      details: 'Rigorous mathematical base focusing on physics, chemistry, mathematics, and biology.'
     }
   ];
 
   const certifications = [
     {
-      title: 'Applied Machine Learning in Python',
+      title: 'APPLIED MACHINE LEARNING IN PYTHON',
       issuer: 'Certified Professional Course',
       highlight: true
     },
     {
-      title: 'Data Analytics & Technology Job Simulation',
+      title: 'DATA ANALYTICS & TECH SIMULATION',
       issuer: 'Deloitte Australia / Forage',
       highlight: false
     },
     {
-      title: 'AI-ML Certification',
+      title: 'AI-ML CERTIFICATION',
       issuer: 'Vityarthi / Vellore Institute of Technology',
       highlight: false
     },
     {
-      title: 'Summer of Codefest\'25',
+      title: 'SUMMER OF CODEFEST\'25',
       issuer: 'Ideathon Submission Round Certificate',
       highlight: false
     },
     {
-      title: 'Advanced DSA & Java',
+      title: 'ADVANCED DSA & JAVA',
       issuer: 'IIT-M Training Certification (Coding Ninjas, In Progress)',
       highlight: true
     }
   ];
 
   return (
-    <section id="education" className="py-32 px-6 bg-black relative overflow-hidden">
-      {/* Decorative Glow Blob */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/5 rounded-full blur-[150px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-20">
-          <span className="text-xs uppercase tracking-widest text-indigo-400 font-bold mb-4 inline-block">
-            Verified Records
-          </span>
-          <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
-            Education & Certifications
-          </h2>
-          <p className="text-gray-400 mt-4 max-w-xl mx-auto text-base">
-            Academic pathways and technical credentials validating engineering competencies.
-          </p>
+    <section id="education" className="bg-black relative border-b border-white/5 scroll-mt-16">
+      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 border-x border-white/5">
+        
+        {/* Title Side Pane */}
+        <div className="lg:col-span-3 p-8 sm:p-12 border-b lg:border-b-0 lg:border-r border-white/5">
+          <div className="sticky top-24 space-y-4">
+            <span className="text-[10px] font-mono tracking-[0.25em] text-indigo-400 uppercase">
+              Verifications
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight font-sans">
+              Credentials
+            </h2>
+            <p className="text-gray-400 text-xs leading-relaxed font-sans">
+              Academic credentials and professional industry certifications verified on-chain.
+            </p>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Education Track */}
-          <div className="lg:col-span-7 space-y-6">
-            <div className="flex items-center gap-3 mb-2">
-              <div className="p-2 bg-indigo-500/10 border border-indigo-500/20 rounded-lg text-indigo-400">
-                <GraduationCap size={20} />
-              </div>
-              <h3 className="text-xl font-bold text-white tracking-tight">Academic History</h3>
+        {/* Modular Grid Panel splits */}
+        <div className="lg:col-span-9 grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-white/5">
+          
+          {/* Education list Column */}
+          <div className="md:col-span-7 p-8 sm:p-12 space-y-8">
+            <div className="flex items-center gap-2.5 font-mono text-[10px] tracking-wider text-gray-500 pb-4 border-b border-white/5">
+              <GraduationCap size={14} className="text-indigo-400" />
+              <span>ACADEMIC_RECORD // MODULE 01</span>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-6">
               {education.map((edu, idx) => (
-                <div 
-                  key={idx}
-                  className="glass-card rounded-2xl p-6 hover:border-indigo-500/20 transition-all duration-300"
-                >
-                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 mb-3">
-                    <div>
-                      <h4 className="text-base font-bold text-white tracking-tight">
-                        {edu.institution}
-                      </h4>
-                      <p className="text-sm text-indigo-400 font-semibold mt-0.5">
-                        {edu.degree}
-                      </p>
-                    </div>
-                    <span className="text-xs font-bold text-gray-500 bg-[#1F1F29]/60 px-3 py-1 rounded-md border border-[#1F1F29] self-start sm:self-auto">
+                <div key={idx} className="group space-y-2">
+                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-1">
+                    <h4 className="text-sm font-bold text-white tracking-tight group-hover:text-indigo-400 transition-colors">
+                      {edu.institution}
+                    </h4>
+                    <span className="font-mono text-[9px] text-gray-600 bg-white/5 border border-white/5 px-2 py-0.5 self-start sm:self-auto">
                       {edu.timeline}
                     </span>
                   </div>
-                  <p className="text-gray-400 text-xs leading-relaxed">
+                  <p className="text-[11px] font-mono text-indigo-400 tracking-wider">
+                    {edu.degree}
+                  </p>
+                  <p className="text-gray-500 text-xs leading-relaxed group-hover:text-gray-400 transition-colors">
                     {edu.details}
                   </p>
                 </div>
@@ -106,37 +102,35 @@ export default function Credentials() {
             </div>
           </div>
 
-          {/* Certifications Track */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="flex items-center gap-3 mb-2">
-              <div className="p-2 bg-purple-500/10 border border-purple-500/20 rounded-lg text-purple-400">
-                <Award size={20} />
-              </div>
-              <h3 className="text-xl font-bold text-white tracking-tight">Certifications & Achievements</h3>
+          {/* Certifications list Column */}
+          <div className="md:col-span-5 p-8 sm:p-12 space-y-8">
+            <div className="flex items-center gap-2.5 font-mono text-[10px] tracking-wider text-gray-500 pb-4 border-b border-white/5">
+              <Award size={14} className="text-purple-400" />
+              <span>VERIFIED_CREDENTIALS // MODULE 02</span>
             </div>
 
-            <div className="glass-card rounded-2xl p-6 divide-y divide-white/5 space-y-4">
+            <div className="space-y-4">
               {certifications.map((cert, idx) => (
                 <div 
                   key={idx}
-                  className={`pt-4 first:pt-0 flex items-start gap-4 ${
-                    cert.highlight ? 'group' : ''
+                  className={`flex items-start gap-3 group pt-3 first:pt-0 ${
+                    idx !== 0 ? 'border-t border-white/[0.03]' : ''
                   }`}
                 >
-                  <div className={`p-1.5 rounded-lg shrink-0 mt-0.5 ${
+                  <div className={`p-1 mt-0.5 rounded-sm shrink-0 border ${
                     cert.highlight 
-                      ? 'bg-indigo-500/15 text-indigo-400 border border-indigo-500/30' 
-                      : 'bg-white/5 text-gray-500 border border-white/5'
+                      ? 'bg-indigo-500/10 border-indigo-500/20 text-indigo-400' 
+                      : 'bg-white/5 border-white/5 text-gray-600'
                   }`}>
-                    <CheckCircle2 size={14} />
+                    <CheckCircle2 size={12} />
                   </div>
                   <div>
-                    <h4 className={`text-xs font-bold leading-tight ${
+                    <h4 className={`text-xs font-bold leading-tight font-mono ${
                       cert.highlight ? 'text-white group-hover:text-indigo-400 transition-colors' : 'text-gray-300'
                     }`}>
                       {cert.title}
                     </h4>
-                    <p className="text-[10px] text-gray-500 mt-1 font-medium">
+                    <p className="text-[9px] text-gray-500 font-medium tracking-wider mt-0.5 uppercase">
                       {cert.issuer}
                     </p>
                   </div>
@@ -144,7 +138,9 @@ export default function Credentials() {
               ))}
             </div>
           </div>
+
         </div>
+
       </div>
     </section>
   );
