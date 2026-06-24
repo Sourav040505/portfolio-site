@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, Copy, Check } from 'lucide-react';
+import { Copy, Check, Terminal } from 'lucide-react';
 
 export default function Contact() {
   const [copiedEmail, setCopiedEmail] = useState(false);
@@ -20,90 +20,106 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-32 px-6 bg-black relative">
-      {/* Decorative Glow Blob */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none z-0" />
-
-      <div className="max-w-4xl mx-auto relative z-10 text-center">
-        <div className="mb-12">
-          <span className="text-xs uppercase tracking-widest text-indigo-400 font-bold mb-4 inline-block">
-            Let's Collaborate
-          </span>
-          <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
-            Initiate Deployment
-          </h2>
-          <p className="text-gray-400 mt-4 max-w-xl mx-auto text-base">
-            Reach out directly for engineering management, agent orchestration design, or scale architecture consultation.
-          </p>
-        </div>
-
-        {/* High-conversion Pitch & Contact Box */}
-        <div className="glass-card rounded-3xl p-8 md:p-12 text-left bg-gradient-to-b from-[#0B0B0F] to-black">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div>
-              <h3 className="text-xl font-bold text-white mb-4">
-                Rapid Onboarding Pitch
-              </h3>
-              <p className="text-gray-400 text-sm leading-relaxed mb-6">
-                Specializing in bridging educational technology and autonomous software systems. Ready to deploy agent setups, refactor legacy codebases, and optimize digital storefront processes.
-              </p>
-              <div className="flex items-center gap-2 text-xs font-semibold text-emerald-400">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-                <span>Available for Q3/Q4 contracts</span>
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              {/* Email Copier */}
-              <div className="p-4 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-between hover:border-white/15 transition-all">
-                <div className="flex items-center gap-3">
-                  <div className="p-2.5 bg-indigo-500/10 border border-indigo-500/20 rounded-xl text-indigo-400">
-                    <Mail size={18} />
-                  </div>
-                  <div>
-                    <div className="text-[10px] uppercase text-gray-500 font-semibold tracking-wider">Email Address</div>
-                    <div className="text-sm font-bold text-white mt-0.5 select-all">{email}</div>
-                  </div>
-                </div>
-                <button
-                  onClick={() => copyToClipboard(email, 'email')}
-                  className="p-2.5 rounded-xl hover:bg-white/5 text-gray-400 hover:text-white transition-all"
-                  title="Copy to Clipboard"
-                >
-                  {copiedEmail ? <Check size={16} className="text-emerald-400" /> : <Copy size={16} />}
-                </button>
-              </div>
-
-              {/* Phone Copier */}
-              <div className="p-4 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-between hover:border-white/15 transition-all">
-                <div className="flex items-center gap-3">
-                  <div className="p-2.5 bg-purple-500/10 border border-purple-500/20 rounded-xl text-purple-400">
-                    <Phone size={18} />
-                  </div>
-                  <div>
-                    <div className="text-[10px] uppercase text-gray-500 font-semibold tracking-wider">Direct Line</div>
-                    <div className="text-sm font-bold text-white mt-0.5 select-all">{phone}</div>
-                  </div>
-                </div>
-                <button
-                  onClick={() => copyToClipboard(phone, 'phone')}
-                  className="p-2.5 rounded-xl hover:bg-white/5 text-gray-400 hover:text-white transition-all"
-                  title="Copy to Clipboard"
-                >
-                  {copiedPhone ? <Check size={16} className="text-emerald-400" /> : <Copy size={16} />}
-                </button>
-              </div>
-            </div>
+    <section id="contact" className="bg-black relative border-b border-white/5 scroll-mt-16">
+      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 border-x border-white/5">
+        
+        {/* Title Side Pane */}
+        <div className="lg:col-span-3 p-8 sm:p-12 border-b lg:border-b-0 lg:border-r border-white/5">
+          <div className="sticky top-24 space-y-4">
+            <span className="text-[10px] font-mono tracking-[0.25em] text-indigo-400 uppercase">
+              Connectivity
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight font-sans">
+              Contact
+            </h2>
+            <p className="text-gray-400 text-xs leading-relaxed font-sans">
+              Request pipeline authorization. Copy contact variables directly into your registry clipboard.
+            </p>
           </div>
         </div>
 
-        {/* Floating Quick Action */}
-        <div className="mt-8 text-sm text-gray-500">
-          Or send an instant email ping to{' '}
-          <a href={`mailto:${email}`} className="text-indigo-400 hover:underline font-semibold">
-            {email}
-          </a>
+        {/* Directory Contact Details */}
+        <div className="lg:col-span-9 p-8 sm:p-12 space-y-8 flex flex-col justify-center">
+          <div className="flex items-center gap-2.5 font-mono text-[10px] tracking-wider text-gray-500 pb-4 border-b border-white/5">
+            <Terminal size={14} className="text-indigo-400" />
+            <span>COMMUNICATION_CHANNELS // STAGE_ONBOARDING</span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+            
+            {/* Brief Pitch */}
+            <div className="md:col-span-6 space-y-4">
+              <h3 className="text-base font-bold text-white tracking-tight font-sans">
+                Onboarding Pitch
+              </h3>
+              <p className="text-gray-400 text-xs sm:text-sm leading-relaxed font-sans">
+                Currently available for Q3/Q4 engineering contracts, developer developer relations roles, and agent system integration consulting. Secure, automated delivery protocols guaranteed.
+              </p>
+              <div className="flex items-center gap-2 font-mono text-[10px] text-emerald-400">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                <span>AVAILABILITY_STATE // READY</span>
+              </div>
+            </div>
+
+            {/* Monospace Copy Box Panel */}
+            <div className="md:col-span-6 space-y-4 font-mono text-[11px] tracking-wider">
+              
+              {/* Email Row */}
+              <div className="p-4 bg-[#050508]/60 border border-white/5 flex items-center justify-between rounded-md">
+                <div>
+                  <div className="text-[9px] text-gray-600 uppercase">SYS_VAR // EMAIL</div>
+                  <div className="text-white font-bold mt-1 select-all">{email}</div>
+                </div>
+                <button
+                  onClick={() => copyToClipboard(email, 'email')}
+                  className="p-2 border border-white/5 hover:border-white/20 text-gray-400 hover:text-white transition-all bg-black"
+                  title="Copy variables"
+                >
+                  {copiedEmail ? (
+                    <span className="text-[9px] text-emerald-400 font-bold flex items-center gap-1">
+                      <Check size={10} /> COPIED
+                    </span>
+                  ) : (
+                    <Copy size={12} />
+                  )}
+                </button>
+              </div>
+
+              {/* Phone Row */}
+              <div className="p-4 bg-[#050508]/60 border border-white/5 flex items-center justify-between rounded-md">
+                <div>
+                  <div className="text-[9px] text-gray-600 uppercase">SYS_VAR // PHONE</div>
+                  <div className="text-white font-bold mt-1 select-all">{phone}</div>
+                </div>
+                <button
+                  onClick={() => copyToClipboard(phone, 'phone')}
+                  className="p-2 border border-white/5 hover:border-white/20 text-gray-400 hover:text-white transition-all bg-black"
+                  title="Copy variables"
+                >
+                  {copiedPhone ? (
+                    <span className="text-[9px] text-emerald-400 font-bold flex items-center gap-1">
+                      <Check size={10} /> COPIED
+                    </span>
+                  ) : (
+                    <Copy size={12} />
+                  )}
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* Mailto trigger shortcut */}
+          <div className="font-mono text-[10px] text-gray-600 pt-4 border-t border-white/[0.04]">
+            PING PROTOCOL: Send an instant email payload to{' '}
+            <a href={`mailto:${email}`} className="text-indigo-400 font-bold hover:underline">
+              souravgoswami2005@gmail.com
+            </a>
+          </div>
+
         </div>
+
       </div>
     </section>
   );
