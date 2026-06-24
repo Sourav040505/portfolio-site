@@ -2,6 +2,8 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ProjectGrid from './components/ProjectGrid';
+import Experience from './components/Experience';
+import Credentials from './components/Credentials';
 import TechStack from './components/TechStack';
 import Contact from './components/Contact';
 
@@ -14,6 +16,7 @@ function Footer() {
         </div>
         <div className="flex gap-6">
           <a href="https://github.com/Sourav040505" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GitHub</a>
+          <a href="https://linkedin.com/in/souravgoswami2005" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
           <a href="mailto:souravgoswami2005@gmail.com" className="hover:text-white transition-colors">Email</a>
         </div>
       </div>
@@ -34,6 +37,8 @@ function App() {
       <main className="flex-grow">
         <Hero />
         <ProjectGrid />
+        <Experience />
+        <Credentials />
         <TechStack />
         <Contact />
       </main>
