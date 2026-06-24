@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Github, ExternalLink, ShieldCheck, Zap, Database, ArrowRight } from 'lucide-react';
+import { Github, ExternalLink, ShieldCheck, Zap, Database } from 'lucide-react';
 
 export default function ProjectGrid() {
   const [activeFilter, setActiveFilter] = useState('All');

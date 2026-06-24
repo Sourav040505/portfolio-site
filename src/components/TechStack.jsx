@@ -1,5 +1,5 @@
 import React from 'react';
-import { Cpu, GitCompare, Globe, Terminal, Sparkles, Workflow } from 'lucide-react';
+import { Cpu, GitCompare, Globe, Terminal, Workflow } from 'lucide-react';
 
 export default function TechStack() {
   const tools = [

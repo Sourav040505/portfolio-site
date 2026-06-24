@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, Copy, Check, Send } from 'lucide-react';
+import { Mail, Phone, Copy, Check } from 'lucide-react';
 
 export default function Contact() {
   const [copiedEmail, setCopiedEmail] = useState(false);

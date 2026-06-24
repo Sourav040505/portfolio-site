@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Download, Sparkles, FileDown } from 'lucide-react';
+import { ArrowRight, Sparkles, FileDown } from 'lucide-react';
 
 export default function Hero() {
   return (
