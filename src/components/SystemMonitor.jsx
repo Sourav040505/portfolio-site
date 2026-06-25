@@ -184,16 +184,18 @@ export default function SystemMonitor() {
                 </a>
 
                 {/* Progress bar */}
-                <div>
-                  <div className="h-0.5 w-full bg-white/5 relative overflow-hidden">
-                    <div className="absolute inset-y-0 left-0 bg-emerald-400 transition-all duration-1000"
-                      style={{ width: `${progressPct}%` }} />
+                {spotify.track.duration > 0 && (
+                  <div>
+                    <div className="h-0.5 w-full bg-white/5 relative overflow-hidden">
+                      <div className="absolute inset-y-0 left-0 bg-emerald-400 transition-all duration-1000"
+                        style={{ width: `${progressPct}%` }} />
+                    </div>
+                    <div className="flex justify-between font-mono text-[9px] text-gray-600 mt-1">
+                      <span>{formatMs(spotify.track.progress)}</span>
+                      <span>{formatMs(spotify.track.duration)}</span>
+                    </div>
                   </div>
-                  <div className="flex justify-between font-mono text-[9px] text-gray-600 mt-1">
-                    <span>{formatMs(spotify.track.progress)}</span>
-                    <span>{formatMs(spotify.track.duration)}</span>
-                  </div>
-                </div>
+                )}
               </>
             ) : (
               <div className="flex-grow flex items-center justify-center py-10 text-gray-600 font-mono text-xs">
