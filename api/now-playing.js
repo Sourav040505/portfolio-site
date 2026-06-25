@@ -6,10 +6,6 @@ const CLIENT_ID = process.env.SPOTIFY_CLIENT_ID?.trim();
 const CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET?.trim();
 const REFRESH_TOKEN = process.env.SPOTIFY_REFRESH_TOKEN?.trim();
 
-console.log('Debug CLIENT_ID:', CLIENT_ID ? `${CLIENT_ID.substring(0, 4)}...${CLIENT_ID.substring(CLIENT_ID.length - 4)} (len: ${CLIENT_ID.length})` : 'undefined');
-console.log('Debug CLIENT_SECRET:', CLIENT_SECRET ? `${CLIENT_SECRET.substring(0, 4)}...${CLIENT_SECRET.substring(CLIENT_SECRET.length - 4)} (len: ${CLIENT_SECRET.length})` : 'undefined');
-console.log('Debug REFRESH_TOKEN:', REFRESH_TOKEN ? `${REFRESH_TOKEN.substring(0, 4)}...${REFRESH_TOKEN.substring(REFRESH_TOKEN.length - 4)} (len: ${REFRESH_TOKEN.length})` : 'undefined');
-
 const TOKEN_ENDPOINT = 'https://accounts.spotify.com/api/token';
 const NOW_PLAYING_ENDPOINT =
   'https://api.spotify.com/v1/me/player/currently-playing';
