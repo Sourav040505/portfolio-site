@@ -12,7 +12,7 @@ export const projects = [
     metrics: ['Solo-built LLM prompt pipeline', 'Live on Vercel'],
     tech: ['React', 'Vite', 'LLM Integration', 'Tailwind CSS'],
     github: 'https://github.com/Sourav040505/hookcraft-ai',
-    live: 'https://hookcraft-ai.vercel.app',
+    live: 'https://hookcraft-ai-two.vercel.app/',
     preview: null,
     icon: Zap,
     accent: 'rgba(234,179,8,0.15)',
