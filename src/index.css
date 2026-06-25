@@ -46,6 +46,19 @@
   @media (pointer: fine) {
     *, *::before, *::after { cursor: none !important; }
   }
+
+  /* Reduced motion — restore native cursor, disable animations */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      cursor: auto !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    .noise-overlay { display: none; }
+    .scroll-reveal { opacity: 1 !important; transform: none !important; }
+  }
 }
 
 /* ─── Noise overlay ─────────────────────────────────────────── */
@@ -150,3 +163,22 @@
   transition: opacity 0.3s;
 }
 .card-shine:hover::before { opacity: 1; }
+
+/* ─── Scroll reveal ──────────────────────────────────────────── */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.scroll-reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Spotify disc spin ──────────────────────────────────────── */
+@keyframes spin { to { transform: rotate(360deg); } }
+.spotify-disc { animation: spin 6s linear infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .spotify-disc { animation: none; }
+}

@@ -39,13 +39,25 @@ export default function Contact() {
             </div>
 
             <h3 className="text-2xl sm:text-3xl font-bold text-white leading-snug">
-              Open to software engineering roles,<br className="hidden sm:block" />
-              freelance projects, and collaborations.
+              Open to backend SDE internships,<br className="hidden sm:block" />
+              AI engineering roles, and freelance web projects.
             </h3>
 
             <p className="text-gray-400 text-sm leading-relaxed max-w-md">
-              Whether you're a recruiter, a startup founder, or a developer looking to collaborate — feel free to reach out. I respond to all emails.
+              Remote · Available immediately · Indian citizen. Whether you're a recruiter, founder, or developer — I respond to all emails.
             </p>
+
+            {/* Role preference pills */}
+            <div className="flex flex-wrap gap-2 pt-1">
+              {['Backend SDE', 'AI / LLM', 'C++ & DSA', 'Freelance Web', 'Remote'].map((tag) => (
+                <span
+                  key={tag}
+                  className="text-[9px] font-mono px-3 py-1 border border-white/10 text-gray-500 tracking-wider uppercase"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
 
             {/* Social links */}
             <div className="flex items-center gap-4 pt-2">

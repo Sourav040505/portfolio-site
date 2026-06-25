@@ -18,7 +18,7 @@ const categories = [
     label: 'Languages & DSA',
     icon: <Cpu size={16} className="text-amber-400" />,
     accentColor: '#fbbf24',
-    items: ['Java', 'C++', 'Python', 'Data Structures', 'Algorithms'],
+    items: ['C++', 'Java', 'Python', 'Data Structures', 'Algorithms'],
   },
   {
     label: 'Tooling & Workflow',

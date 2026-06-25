@@ -1,16 +1,19 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
-/**
- * Futuristic crosshair cursor.
- * - On desktop pointer devices, hides the native cursor.
- * - Outer ring + centre dot + 4 tick marks forming a targeting reticle.
- * - Scales up and glows on interactive elements.
- */
 export default function CustomCursor() {
   const [pos, setPos] = useState({ x: -200, y: -200 });
   const [hovered, setHovered] = useState(false);
   const [clicking, setClicking] = useState(false);
   const [visible, setVisible] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setReducedMotion(mq.matches);
+    const handler = (e) => setReducedMotion(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
 
   const handleMove = useCallback((e) => {
     setPos({ x: e.clientX, y: e.clientY });
@@ -27,6 +30,7 @@ export default function CustomCursor() {
   }, []);
 
   useEffect(() => {
+    if (reducedMotion) return;
     const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     if (isTouch) return;
 
@@ -41,9 +45,9 @@ export default function CustomCursor() {
       window.removeEventListener('mousemove', handleMove);
       window.removeEventListener('mouseover', handleOver);
     };
-  }, [handleMove, handleOver]);
+  }, [handleMove, handleOver, reducedMotion]);
 
-  if (!visible) return null;
+  if (reducedMotion || !visible) return null;
 
   const size = hovered ? 36 : clicking ? 16 : 24;
   const color = hovered ? '#818cf8' : 'rgba(255,255,255,0.75)';

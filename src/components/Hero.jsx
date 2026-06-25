@@ -47,7 +47,7 @@ export default function Hero() {
           }}
         >
           <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
-          Software Engineer
+          SDE · Backend + AI + DSA
         </span>
 
         {/* Name */}
@@ -68,8 +68,25 @@ export default function Hero() {
           className="max-w-xl text-base sm:text-lg leading-relaxed"
           style={{ color: '#6b7280', fontFamily: "'Inter', sans-serif", fontWeight: 400 }}
         >
-          I build fast, elegant web products — from React frontends and REST APIs to full-stack Django applications. Currently at VIT, crafting things that matter.
+          Backend engineer building AI-powered systems — C++, DSA, and production APIs. Currently at VIT, Bhopal.
         </p>
+
+        {/* Availability strip */}
+        <div
+          className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[10px] font-mono tracking-widest uppercase"
+          style={{ color: '#9ca3af' }}
+        >
+          <span className="flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+            Open to internships & freelance
+          </span>
+          <span className="hidden sm:inline text-gray-300">·</span>
+          <span>Remote</span>
+          <span className="hidden sm:inline text-gray-300">·</span>
+          <span>Available immediately</span>
+          <span className="hidden sm:inline text-gray-300">·</span>
+          <span>India</span>
+        </div>
 
         {/* CTA row */}
         <div className="flex flex-col sm:flex-row items-center gap-4 w-full justify-center mt-2">
@@ -89,8 +106,9 @@ export default function Hero() {
           </a>
 
           <a
-            href="/resume.pdf"
-            download
+            href="/resume.html"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-3.5 font-semibold text-sm tracking-wide border transition-all duration-200"
             style={{
               borderColor: 'rgba(15,15,26,0.2)',

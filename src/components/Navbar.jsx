@@ -55,6 +55,7 @@ export default function Navbar() {
     { label: 'WORK', href: '#projects' },
     { label: 'EXPERIENCE', href: '#experience' },
     { label: 'STACK', href: '#stack' },
+    { label: 'NOTES', href: '#notes' },
     { label: 'CONTACT', href: '#contact' },
   ];
 
@@ -103,8 +104,9 @@ export default function Navbar() {
             OPEN TO WORK
           </span>
           <a
-            href="/resume.pdf"
-            download
+            href="/resume.html"
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-4 py-1.5 border border-indigo-500/40 hover:border-indigo-400 text-indigo-300 hover:text-white text-[11px] font-mono tracking-widest uppercase transition-all duration-200 hover:bg-indigo-500/10"
           >
             RESUME

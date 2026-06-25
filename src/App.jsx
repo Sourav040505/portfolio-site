@@ -6,8 +6,10 @@ import Experience from './components/Experience';
 import Credentials from './components/Credentials';
 import SystemMonitor from './components/SystemMonitor';
 import TechStack from './components/TechStack';
+import BlogNotes from './components/BlogNotes';
 import Contact from './components/Contact';
 import CustomCursor from './components/CustomCursor';
+import Terminal from './components/Terminal';
 
 function Footer() {
   return (
@@ -39,6 +41,10 @@ function Footer() {
           <a href="mailto:souravgoswami2005@gmail.com" className="hover:text-white transition-colors">
             Email
           </a>
+          <span className="text-gray-700 hidden sm:inline">·</span>
+          <span className="text-gray-600 hidden sm:inline tracking-wider">
+            <kbd className="text-indigo-400/70">`</kbd> terminal
+          </span>
         </div>
       </div>
     </footer>
@@ -51,35 +57,19 @@ export default function App() {
       className="min-h-screen flex flex-col relative"
       style={{ background: '#080810', color: '#f1f1f3', fontFamily: "'Inter', sans-serif" }}
     >
-      {/* Futuristic custom crosshair cursor */}
       <CustomCursor />
-
-      {/* Subtle noise texture overlay */}
+      <Terminal />
       <div className="noise-overlay" />
-
-      {/* Sticky top navbar with scramble-text links */}
       <Navbar />
 
       <main className="flex-grow">
-        {/* ① Landing — simplistic, light background */}
         <Hero />
-
-        {/* ② Projects — dark futuristic card grid */}
         <ProjectGrid />
-
-        {/* ③ Experience — dark 3-column cards */}
         <Experience />
-
-        {/* ④ Credentials — education + certs */}
         <Credentials />
-
-        {/* ⑤ Live feed — current project + Spotify widget */}
         <SystemMonitor />
-
-        {/* ⑥ Tech stack — skill categories + workflow */}
         <TechStack />
-
-        {/* ⑦ Contact — email copy + CTA */}
+        <BlogNotes />
         <Contact />
       </main>
 
