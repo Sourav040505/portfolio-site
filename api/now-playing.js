@@ -25,6 +25,13 @@ async function getAccessToken() {
       refresh_token: REFRESH_TOKEN,
     }),
   });
+  
+  if (!res.ok) {
+    const text = await res.text();
+    console.error(`Token endpoint returned status ${res.status}: ${text}`);
+    throw new Error(`Spotify token error: ${res.status}`);
+  }
+  
   return res.json();
 }
 
