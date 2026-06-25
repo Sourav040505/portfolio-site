@@ -40,43 +40,29 @@ export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET');
 
-  try {
-    const { access_token } = await getAccessToken();
-
     // Try currently playing first
     const npRes = await fetch(NOW_PLAYING_ENDPOINT, {
       headers: { Authorization: `Bearer ${access_token}` },
     });
 
-    // 204 = nothing playing right now
-    if (npRes.status === 204 || npRes.status > 400) {
-      // Fall back to most recently played
-      const rpRes = await fetch(RECENTLY_PLAYED_ENDPOINT, {
-        headers: { Authorization: `Bearer ${access_token}` },
-      });
-      const rpData = await rpRes.json();
-      const track = rpData.items?.[0]?.track;
+    if (npRes.status === 204) {
+      // Nothing playing right now, fall back to recently played
+      return await handleRecentlyPlayed(access_token, res);
+    }
 
-      if (!track) {
-        return res.status(200).json({ isPlaying: false, track: null });
-      }
-
-      return res.status(200).json({
-        isPlaying: false,
-        track: {
-          title: track.name,
-          artist: track.artists.map((a) => a.name).join(', '),
-          album: track.album.name,
-          albumArt: track.album.images?.[0]?.url ?? null,
-          spotifyUrl: track.external_urls.spotify,
-          duration: track.duration_ms,
-          progress: 0,
-        },
-      });
+    if (!npRes.ok) {
+      const text = await npRes.text();
+      console.warn(`Spotify currently-playing returned status ${npRes.status}: ${text}`);
+      // If it's a 403 or other subscription/auth error, try recently played, or return fallback
+      return await handleRecentlyPlayed(access_token, res);
     }
 
     const data = await npRes.json();
     const track = data.item;
+
+    if (!track) {
+      return await handleRecentlyPlayed(access_token, res);
+    }
 
     return res.status(200).json({
       isPlaying: data.is_playing,
@@ -92,6 +78,51 @@ export default async function handler(req, res) {
     });
   } catch (err) {
     console.error('Spotify API error:', err);
-    return res.status(500).json({ error: 'Failed to fetch Spotify data' });
+    return res.status(200).json({ 
+      isPlaying: false, 
+      track: null, 
+      error: err.message || 'Failed to fetch Spotify data' 
+    });
+  }
+}
+
+async function handleRecentlyPlayed(accessToken, res) {
+  try {
+    const rpRes = await fetch(RECENTLY_PLAYED_ENDPOINT, {
+      headers: { Authorization: `Bearer ${accessToken}` },
+    });
+
+    if (!rpRes.ok) {
+      const text = await rpRes.text();
+      console.warn(`Spotify recently-played returned status ${rpRes.status}: ${text}`);
+      return res.status(200).json({ 
+        isPlaying: false, 
+        track: null, 
+        error: `Spotify API status ${rpRes.status}` 
+      });
+    }
+
+    const rpData = await rpRes.json();
+    const track = rpData.items?.[0]?.track;
+
+    if (!track) {
+      return res.status(200).json({ isPlaying: false, track: null });
+    }
+
+    return res.status(200).json({
+      isPlaying: false,
+      track: {
+        title: track.name,
+        artist: track.artists.map((a) => a.name).join(', '),
+        album: track.album.name,
+        albumArt: track.album.images?.[0]?.url ?? null,
+        spotifyUrl: track.external_urls.spotify,
+        duration: track.duration_ms,
+        progress: 0,
+      },
+    });
+  } catch (e) {
+    console.error('Error in recently played fallback:', e);
+    return res.status(200).json({ isPlaying: false, track: null });
   }
 }
