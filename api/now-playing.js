@@ -40,6 +40,9 @@ export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET');
 
+  try {
+    const { access_token } = await getAccessToken();
+
     // Try currently playing first
     const npRes = await fetch(NOW_PLAYING_ENDPOINT, {
       headers: { Authorization: `Bearer ${access_token}` },
