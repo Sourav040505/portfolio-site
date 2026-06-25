@@ -2,15 +2,15 @@
 // Vercel serverless function — proxies Last.fm API
 // so client credentials never touch the frontend.
 
-const API_KEY = process.env.LASTFM_API_KEY?.trim();
-const USERNAME = process.env.LASTFM_USERNAME?.trim();
-
 export default async function handler(req, res) {
   // CORS — allow your frontend origin
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET');
 
-  console.log('Available process.env keys:', Object.keys(process.env));
+  const API_KEY = process.env.LASTFM_API_KEY?.trim();
+  const USERNAME = process.env.LASTFM_USERNAME?.trim();
+
+  console.log('Runtime check - API_KEY exists:', !!API_KEY, 'USERNAME exists:', !!USERNAME);
 
   if (!API_KEY || !USERNAME) {
     return res.status(200).json({
@@ -51,7 +51,7 @@ export default async function handler(req, res) {
         album: track.album?.['#text'] || 'Unknown Album',
         albumArt,
         spotifyUrl: track.url || 'https://www.last.fm',
-        duration: 0, // Last.fm does not return duration for recent tracks
+        duration: 0,
         progress: 0,
       },
     });
