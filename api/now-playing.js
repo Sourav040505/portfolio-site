@@ -10,8 +10,6 @@ export default async function handler(req, res) {
   const API_KEY = process.env.LASTFM_API_KEY?.trim();
   const USERNAME = process.env.LASTFM_USERNAME?.trim();
 
-  console.log('Runtime check - API_KEY exists:', !!API_KEY, 'USERNAME exists:', !!USERNAME);
-
   if (!API_KEY || !USERNAME) {
     return res.status(200).json({
       isPlaying: false,
