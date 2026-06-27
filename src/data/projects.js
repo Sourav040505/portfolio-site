@@ -1,4 +1,4 @@
-import { Zap, Globe, ShieldCheck, Layers, Database, Code2 } from 'lucide-react';
+import { Zap, Globe, ShieldCheck, Layers, Database, Code2, Terminal } from 'lucide-react';
 
 export const projects = [
   {
@@ -75,7 +75,7 @@ export const projects = [
       'Refactored and redesigned the FOSSEE workshop web application — responsive layouts, optimised asset loading, and Django controller improvements.',
     metrics: ['Internal IIT Bombay project'],
     tech: ['Python', 'Django', 'CSS Grid', 'Asset Optimisation'],
-    github: 'https://github.com/Sourav040505',
+    github: 'https://github.com/Sourav040505/fossee-workshop-redesign',
     live: null,
     preview: null,
     icon: Layers,
@@ -92,7 +92,7 @@ export const projects = [
       'Persistent learning portal with flashcard flows, Supabase backend, async queries, and real-time data sync for user progress tracking.',
     metrics: ['Supabase backend', 'Live on Vercel'],
     tech: ['Supabase', 'React', 'Async Queries', 'Real-time DB'],
-    github: 'https://github.com/Sourav040505',
+    github: 'https://github.com/Sourav040505/Vocab_trainer2.0',
     live: 'https://vocab-trainer-jade.vercel.app/#/flashcards',
     preview: null,
     icon: Database,
@@ -109,13 +109,30 @@ export const projects = [
       'Desktop application demonstrating clean OOP — encapsulation, inheritance, and interface contracts with optimised data structure implementations in Java.',
     metrics: ['OOP + DSA in Java'],
     tech: ['Java', 'OOP Design', 'Data Structures', 'Algorithms'],
-    github: 'https://github.com/Sourav040505',
+    github: 'https://github.com/Sourav040505/CCRM_24BET10003',
     live: null,
     preview: null,
     icon: Code2,
     accent: 'rgba(244,63,94,0.12)',
     accentBorder: 'rgba(244,63,94,0.25)',
     accentText: '#fb7185',
+  },
+  {
+    id: 'foss-audit',
+    title: 'FOSS Linux Auditor',
+    subtitle: 'System Security & Bash Audit',
+    category: 'Systems',
+    description:
+      'Automated system audit suite featuring bash utilities for system identity diagnostics, VLC package inspection, permission auditing, and log analysis.',
+    metrics: ['5 modular bash script utilities', 'GNU/Linux OS auditing'],
+    tech: ['Bash', 'Shell Scripting', 'Linux Utilities', 'Regex'],
+    github: 'https://github.com/Sourav040505/oss-audit-24BET10003',
+    live: null,
+    preview: null,
+    icon: Terminal,
+    accent: 'rgba(129,140,248,0.12)',
+    accentBorder: 'rgba(129,140,248,0.25)',
+    accentText: '#818cf8',
   },
 ];
 
