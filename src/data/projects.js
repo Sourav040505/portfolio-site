@@ -1,4 +1,4 @@
-import { Zap, Globe, ShieldCheck, Layers, Database, Code2, Terminal } from 'lucide-react';
+import { Zap, Globe, ShieldCheck, Layers, Database, Code2, PenTool } from 'lucide-react';
 
 export const projects = [
   {
@@ -118,21 +118,21 @@ export const projects = [
     accentText: '#fb7185',
   },
   {
-    id: 'foss-audit',
-    title: 'FOSS Linux Auditor',
-    subtitle: 'System Security & Bash Audit',
-    category: 'Systems',
+    id: 'inkflow',
+    title: 'InkFlow Notes',
+    subtitle: 'Whiteboard & Canvas Notes',
+    category: 'Web Dev',
     description:
-      'Automated system audit suite featuring bash utilities for system identity diagnostics, VLC package inspection, permission auditing, and log analysis.',
-    metrics: ['5 modular bash script utilities', 'GNU/Linux OS auditing'],
-    tech: ['Bash', 'Shell Scripting', 'Linux Utilities', 'Regex'],
-    github: 'https://github.com/Sourav040505/oss-audit-24BET10003',
+      'High-performance whiteboard and note-taking application using HTML5 Canvas, featuring custom smoothing, a radial tool menu, and multiple paper styles (ruled, dot-grid, graph).',
+    metrics: ['Canvas bezier path smoothing', 'Local Notebook persistence'],
+    tech: ['TypeScript', 'HTML5 Canvas', 'MathJS', 'Vite'],
+    github: 'https://github.com/Sourav040505/note-taking',
     live: null,
     preview: null,
-    icon: Terminal,
-    accent: 'rgba(129,140,248,0.12)',
-    accentBorder: 'rgba(129,140,248,0.25)',
-    accentText: '#818cf8',
+    icon: PenTool,
+    accent: 'rgba(236,72,153,0.12)',
+    accentBorder: 'rgba(236,72,153,0.25)',
+    accentText: '#f472b6',
   },
 ];
 
