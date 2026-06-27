@@ -122,6 +122,7 @@ export const projects = [
     title: 'InkFlow Notes',
     subtitle: 'Whiteboard & Canvas Notes',
     category: 'Web Dev',
+    flagship: true,
     description:
       'High-performance whiteboard and note-taking application using HTML5 Canvas, featuring custom smoothing, a radial tool menu, and multiple paper styles (ruled, dot-grid, graph).',
     metrics: ['Canvas bezier path smoothing', 'Local Notebook persistence'],
@@ -133,6 +134,19 @@ export const projects = [
     accent: 'rgba(236,72,153,0.12)',
     accentBorder: 'rgba(236,72,153,0.25)',
     accentText: '#f472b6',
+    caseStudy: {
+      problem:
+        'Web whiteboard apps often suffer from stroke lag and lack customizable layouts. Tablet/web notes need smooth bezier path drawing and a quick tool switching interface.',
+      role: 'Solo Developer — designed the custom rendering loop and canvas state.',
+      approach:
+        'Implemented interactive pointer event listeners with velocity-based bezier path calculation for smooth strokes, combined with a radial layout tool menu for rapid switching.',
+      highlights: [
+        'High-fidelity path rendering with custom bezier line smoothing',
+        'Radial contextual tool menu for quick switching between tools',
+        'State serialization for multi-notebook local storage persistence',
+      ],
+      stack: ['TypeScript', 'HTML5 Canvas', 'MathJS', 'Vite'],
+    },
   },
 ];
 
