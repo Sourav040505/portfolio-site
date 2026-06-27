@@ -127,7 +127,7 @@ export const projects = [
     metrics: ['Canvas bezier path smoothing', 'Local Notebook persistence'],
     tech: ['TypeScript', 'HTML5 Canvas', 'MathJS', 'Vite'],
     github: 'https://github.com/Sourav040505/note-taking',
-    live: null,
+    live: 'https://prxsrv-notes.vercel.app',
     preview: null,
     icon: PenTool,
     accent: 'rgba(236,72,153,0.12)',
