@@ -50,7 +50,7 @@ export default function CustomCursor() {
   if (reducedMotion || !visible) return null;
 
   const size = hovered ? 36 : clicking ? 16 : 24;
-  const color = hovered ? '#818cf8' : 'rgba(255,255,255,0.75)';
+  const color = hovered ? '#818cf8' : '#ffffff';
   const dotColor = hovered ? '#6366f1' : '#ffffff';
 
   return (
@@ -63,6 +63,7 @@ export default function CustomCursor() {
         width: size,
         height: size,
         transition: 'width 0.12s, height 0.12s',
+        mixBlendMode: 'difference',
       }}
     >
       {/* Outer ring */}
