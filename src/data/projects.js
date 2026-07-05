@@ -47,7 +47,7 @@ export const projects = [
     tech: ['TypeScript', 'HTML5 Canvas', 'MathJS', 'Vite'],
     github: 'https://github.com/Sourav040505/note-taking',
     live: 'https://prxsrv-notes.vercel.app',
-    preview: null,
+    preview: '/inkflow-preview.png',
     icon: PenTool,
     accent: 'rgba(236,72,153,0.12)',
     accentBorder: 'rgba(236,72,153,0.25)',
