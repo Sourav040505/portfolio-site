@@ -319,7 +319,7 @@ export default function SystemMonitor() {
               {!loading && spotify?.track ? (
                 <a href={spotify.track.spotifyUrl} target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-[11px] font-mono text-gray-500 hover:text-emerald-400 transition-colors">
-                  Open in Last.fm <ExternalLink size={10} />
+                  Open in Spotify <ExternalLink size={10} />
                 </a>
               ) : (
                 <span className="text-[10px] font-mono text-gray-600">Feed state: inactive</span>

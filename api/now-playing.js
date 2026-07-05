@@ -48,7 +48,7 @@ export default async function handler(req, res) {
         artist: track.artist?.['#text'] || 'Unknown Artist',
         album: track.album?.['#text'] || 'Unknown Album',
         albumArt,
-        spotifyUrl: track.url || 'https://www.last.fm',
+        spotifyUrl: `https://open.spotify.com/search/${encodeURIComponent(track.name + ' ' + (track.artist?.['#text'] || ''))}`,
         duration: 0,
         progress: 0,
       },
